@@ -1067,14 +1067,14 @@ section {
 # Events
 --------------------------------------------------------------*/
 .events {
-  background: url(../img/events-bg.jpg) center center no-repeat;
+  background: url(../img/chandelier.jpg) center center no-repeat;
   background-size: cover;
   position: relative;
 }
 
 .events::before {
   content: '';
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
   top: 0;
   right: 0;
