@@ -24,7 +24,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: rgb(247, 236, 236);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -222,7 +222,7 @@ a > code {
 kbd {
   padding: 0.2rem 0.4rem;
   font-size: 0.875em;
-  color: #fff;
+  color: rgb(247, 236, 236);
   background-color: #212529;
   border-radius: 0.2rem;
 }

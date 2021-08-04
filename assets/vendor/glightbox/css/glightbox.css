@@ -222,7 +222,7 @@
 }
 
 .gslide-inline {
-  background: #fff;
+  background: rgb(247, 236, 236);
   text-align: left;
   max-height: calc(100vh - 40px);
   overflow: auto;
@@ -253,7 +253,7 @@
   display: flex;
   width: 100%;
   min-width: 100%;
-  background: #fff;
+  background: rgb(247, 236, 236);
   padding: 0;
   overflow: auto;
   max-height: 75vh;
@@ -343,7 +343,7 @@
 }
 
 .glightbox-mobile .glightbox-container .gslide-title {
-  color: #fff;
+  color: rgb(247, 236, 236);
   font-size: 1em;
 }
 
@@ -352,7 +352,7 @@
 }
 
 .glightbox-mobile .glightbox-container .gslide-desc a {
-  color: #fff;
+  color: rgb(247, 236, 236);
   font-weight: bold;
 }
 
@@ -361,11 +361,11 @@
 }
 
 .glightbox-mobile .glightbox-container .gslide-desc string {
-  color: #fff;
+  color: rgb(247, 236, 236);
 }
 
 .glightbox-mobile .glightbox-container .gslide-desc .desc-more {
-  color: #fff;
+  color: rgb(247, 236, 236);
   opacity: 0.4;
 }
 
@@ -411,7 +411,7 @@
   width: 25px;
   -webkit-animation: lightboxLoader 0.8s infinite linear;
   animation: lightboxLoader 0.8s infinite linear;
-  border: 2px solid #fff;
+  border: 2px solid rgb(247, 236, 236);
   border-right-color: transparent;
   border-radius: 50%;
   position: absolute;
@@ -479,7 +479,7 @@
 .gprev .garrow,
 .gnext .garrow,
 .gclose .garrow {
-  stroke: #fff;
+  stroke: rgb(247, 236, 236);
 }
 
 .gbtn.focused {
@@ -500,7 +500,7 @@ iframe.wait-autoplay {
 /*Skin */
 
 .glightbox-clean .gslide-description {
-  background: #fff;
+  background: rgb(247, 236, 236);
 }
 
 .glightbox-clean .gdesc-inner {
@@ -537,7 +537,7 @@ iframe.wait-autoplay {
 .glightbox-clean .gprev path,
 .glightbox-clean .gnext path,
 .glightbox-clean .gclose path {
-  fill: #fff;
+  fill: rgb(247, 236, 236);
 }
 
 .glightbox-clean .gprev {

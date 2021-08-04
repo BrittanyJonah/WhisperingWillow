@@ -488,7 +488,7 @@ section {
     .swiper-pagination-bullet {
       width: 12px;
       height: 12px;
-      background-color: rgba(#fff, .4);
+      background-color: rgba(rgb(247, 236, 236), .4);
       opacity: 1;
     }
   
@@ -520,7 +520,7 @@ section {
     
     .error-message {
       display: none;
-      color: #fff;
+      color: rgb(247, 236, 236);
       background: #ed3c0d;
       text-align: left;
       padding: 15px;
@@ -532,7 +532,7 @@ section {
     
     .sent-message {
       display: none;
-      color: #fff;
+      color: rgb(247, 236, 236);
       background: #18d26e;
       text-align: center;
       padding: 15px;
@@ -585,7 +585,7 @@ section {
       background: $primary;
       border: 0;
       padding: 10px 35px;
-      color: #fff;
+      color: rgb(247, 236, 236);
       transition: 0.4s;
       border-radius: 50px;
       &:hover {
@@ -665,7 +665,7 @@ section {
     .swiper-pagination-bullet {
       width: 12px;
       height: 12px;
-      background-color: rgba(#fff, .4);
+      background-color: rgba(rgb(247, 236, 236), .4);
       opacity: 1;
     }
   
@@ -703,7 +703,7 @@ section {
   .member {
     text-align: center;
     margin-bottom: 20px;
-    background: $black;
+    background: $rgb(15, 15, 15);
     position: relative;
     overflow: hidden;
 
@@ -728,14 +728,14 @@ section {
         font-weight: 700;
         margin-bottom: 2px;
         font-size: 18px;
-        color: #fff;
+        color: rgb(247, 236, 236);
       }
   
       span {
         font-style: italic;
         display: block;
         font-size: 13px;
-        color: #fff;
+        color: rgb(247, 236, 236);
       }
 
     }
@@ -750,7 +750,7 @@ section {
       text-align: center;
       a {
         transition: color 0.3s;
-        color: #fff;
+        color: rgb(247, 236, 236);
         margin: 0 10px;
         display: inline-block;
         &:hover {
@@ -845,7 +845,7 @@ section {
     
     .error-message {
       display: none;
-      color: #fff;
+      color: rgb(247, 236, 236);
       background: #ed3c0d;
       text-align: center;
       padding: 15px;
@@ -854,7 +854,7 @@ section {
     
     .sent-message {
       display: none;
-      color: #fff;
+      color: rgb(247, 236, 236);
       background: #18d26e;
       text-align: center;
       padding: 15px;
@@ -907,7 +907,7 @@ section {
       background: $primary;
       border: 0;
       padding: 10px 35px;
-      color: #fff;
+      color: rgb(247, 236, 236);
       transition: 0.4s;
       border-radius: 50px;
       &:hover {
