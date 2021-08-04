@@ -1,12 +1,13 @@
 
-
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&family=Tangerine:wght@700&display=swap');
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  background: #0c0b09;
+  background: #0c0909;
   color: rgb(247, 236, 236);
 }
 
@@ -35,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #1a1814;
+  background: #1a1514;
 }
 
 #preloader:before {
@@ -43,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #1a1814;
+  border: 6px solid #1a1514;
   border-top-color: #d5b9ab;
   border-bottom-color: #d5b9ab;
   border-radius: 50%;
@@ -96,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-to-top:hover {
   background: #d5b9ab;
-  color: #1a1814;
+  color: #1a1514;
 }
 
 .back-to-top:hover i {
@@ -170,7 +171,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #header {
   background: rgba(12, 11, 9, 0.6);
-  border-bottom: 1px solid rgba(12, 11, 9, 0.6);
+  border-bottom: 1px solid rgba(12, 10, 9, 0.6);
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
@@ -180,18 +181,17 @@ h1, h2, h3, h4, h5, h6 {
 #header.header-scrolled {
   top: 0;
   background: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid #37332a;
+  border-bottom: 1px solid #372d2a;
 }
 
 #header .logo {
-  font-size: 28px;
+  font-size: 40px;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-weight: 300;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: 'MonteCarlo', cursive;
 }
 
 #header .logo a {
@@ -390,7 +390,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-mobile a {
   padding: 10px 20px;
   font-size: 15px;
-  color: #1a1814;
+  color: #1a1514;
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
@@ -467,11 +467,9 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h1 {
   margin: 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
+  font-size: 80px;
   color: rgb(247, 236, 236);
-  font-family: "Poppins", sans-serif;
+  font-family: 'Tangerine', cursive;
 }
 
 #hero h1 span {
@@ -514,7 +512,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#d5b9ab 50%, rgba(211, 181, 169, 0.4) 52%);
+  background: radial-gradient(#d5b9ab 50%, rgba(211, 174, 169, 0.4) 52%);
   border-radius: 50%;
   display: block;
   position: relative;
@@ -553,7 +551,7 @@ h1, h2, h3, h4, h5, h6 {
   animation-timing-function: steps;
   opacity: 1;
   border-radius: 50%;
-  border: 5px solid rgba(211, 181, 169, 0.7);
+  border: 5px solid rgba(211, 177, 169, 0.8);
   top: -15%;
   left: -15%;
   background: rgba(198, 16, 0, 0);
@@ -646,7 +644,7 @@ section {
 }
 
 .section-bg {
-  background-color: #1a1814;
+  background-color: #1a1514;
 }
 
 .section-title {
@@ -677,9 +675,9 @@ section {
 .section-title p {
   margin: 0;
   margin: 0;
-  font-size: 36px;
+  font-size: 50px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: 'Tangerine', cursive;
   color: #d5b9ab;
 }
 
@@ -945,7 +943,7 @@ section {
   width: 70px;
   border-radius: 50%;
   float: left;
-  border: 5px solid rgba(255, 255, 255, 0.2);
+  border: 5px solid #3d4547;
 }
 
 .menu .menu-content {
@@ -971,7 +969,7 @@ section {
 
 .menu .menu-content a {
   padding-right: 10px;
-  background: #1a1814;
+  background: #1a1514;
   position: relative;
   z-index: 3;
   font-weight: 700;
@@ -984,7 +982,7 @@ section {
 }
 
 .menu .menu-content span {
-  background: #1a1814;
+  background: #1a1514;
   position: relative;
   z-index: 3;
   padding: 0 10px;
@@ -1212,7 +1210,7 @@ section {
   height: 24px;
   margin: 0 10px -6px 0;
   border: 3px solid #d5b9ab;
-  border-top-color: #1a1814;
+  border-top-color: #1a1514;
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
@@ -1221,8 +1219,8 @@ section {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
-  background: #0c0b09;
-  border-color: #625b4b;
+  background: #1a1514;
+  border-color: #624e4b;
   color: white;
 }
 
@@ -1278,7 +1276,7 @@ section {
   margin: -40px 0 0 40px;
   position: relative;
   z-index: 2;
-  border: 6px solid rgba(255, 255, 255, 0.2);
+  border: 6px solid #3d4547;
 }
 
 .testimonials .testimonial-item h3 {
@@ -1316,7 +1314,7 @@ section {
   font-style: italic;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;
-  background: #26231d;
+  background: #261f1d;
   position: relative;
   border-radius: 6px;
   position: relative;
@@ -1620,13 +1618,12 @@ section {
 }
 
 #footer .footer-top .footer-info h3 {
-  font-size: 24px;
+  font-size: 40px;
   margin: 0 0 20px 0;
   padding: 2px 0 2px 0;
   line-height: 1;
   font-weight: 300;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: 'MonteCarlo', cursive;
 }
 
 #footer .footer-top .footer-info p {
