@@ -838,7 +838,7 @@ section {
 # Why Us
 --------------------------------------------------------------*/
 .why-us .box {
-  padding: 70px 30px;
+  padding: 90px 30px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   transition: all ease-in-out 0.3s;
   background: #1a1814;
@@ -868,7 +868,7 @@ section {
 
 .why-us .box:hover {
   background: #d5b9ab;
-  padding: 30px 30px 70px 30px;
+  padding: 110px 30px 70px 30px;
   box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
 }
 
