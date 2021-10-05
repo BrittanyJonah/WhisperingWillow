@@ -14,7 +14,7 @@
  
 ### Getting Started
  
-I built this website for a client to help promote their business. <a href="https://brittanyjonah.com" target="_blank">Portfolio</a>. I loved having the creative freedom in building this site for Whispering Willow.
+I built this website for a client to help promote their business. I loved having the creative freedom in building this site for Whispering Willow.
                   
 
 
