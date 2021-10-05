@@ -1,6 +1,6 @@
-<p align="center">
-  ### Whispering Willow
-</p>
+<h1 align="center">
+   Whispering Willow 
+</h1>
 <p align="center">
   A website built for Whispering Willow, A wedding Venue located in Atlantic Canada, by <a href="https://brittanyjonah.com" target="_blank">Brittany Jonah</a>.
 </p>
