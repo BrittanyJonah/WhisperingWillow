@@ -72,21 +72,54 @@
                 </div>
             </div>
             <hr>
-            <h3>Head Table</h3>
-            <div class="row">
-                <div class="col-4 mb-3">
-                    <label for="validationDefault01">Partner 1</label>
-                    <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="validationDefault01">Food Choice</label>
-                    <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+
+                <!-- HEAD TABLE FORM -->
+                <div id="headForm">
+                    <h3>Head Table</h3>
+                    <!-- Partner 1 -->
+                    <div class="row">
+                        <!-- Name field -->
+                        <div class="col-4 mb-3">
+                            <label for="validationDefault01">Partner 1</label>
+                            <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                        </div>
+                        <!-- Food choice field -->
+                        <div class="col-3 mb-3">
+                            <label for="validationDefault01">Food Choice</label>
+                            <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+                            </div>
+                        <!-- Allergy field -->
+                        <div class="col-4 mb-3">
+                            <label for="validationDefault02">Allergies/Food Sensitivities</label>
+                            <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
+                        </div>
+                        <!-- Remove row button -->
+                        <div class="col-1 mb-3">
+                            <button class="btn btn-danger btn-form mt-4" disabled="true" onclick="removeRow(this)">X</button>
+                        </div>
                     </div>
-                <div class="col-4 mb-3">
-                    <label for="validationDefault02">Allergies/Food Sensitivities</label>
-                    <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
-                </div>
-            </div>
+                    <!-- Partner 2 -->
+                    <div class="row">
+                        <!-- Name field -->
+                        <div class="col-4 mb-3">
+                            <label for="validationDefault01">Partner 2</label>
+                            <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                        </div>
+                        <!-- Food choice field -->
+                        <div class="col-3 mb-3">
+                            <label for="validationDefault01">Food Choice</label>
+                            <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+                            </div>
+                        <!-- Allergy field -->
+                        <div class="col-4 mb-3">
+                            <label for="validationDefault02">Allergies/Food Sensitivities</label>
+                            <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
+                        </div>
+                        <!-- Remove row button -->
+                        <div class="col-1 mb-3">
+                            <button class="btn btn-danger btn-form mt-4" disabled="true" onclick="removeRow(this)">X</button>
+                        </div>
+                    </div>
 
                 <hr>
 
@@ -123,27 +156,74 @@
 
                 <hr>
 
-                <h3>Table One</h3>
-                <div class="col-12 mb-3">
-                    <label for="validationDefault01">Table Details</label>
-                    <input type="text" class="form-control" id="validationDefault01" placeholder="ex: 'Family, Joanne Requires Assistance.'" required>
+                <!-- GENERIC TABLE FORM -->
+                <div id="genericTableContainer">
+                    <template class="tableTemplate">
+                        <div class="tableForm">
+                            <h3>Table One</h3>
+                            <div class="row">
+                                <!-- Details field -->
+                                <div class="col-12 mb-3">
+                                    <label for="validationDefault01">Table Details</label>
+                                    <input type="text" class="form-control" id="validationDefault01" placeholder="ex: 'Family, Joanne Requires Assistance.'" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- Name field -->
+                                <div class="col-4 mb-3">
+                                    <label for="validationDefault01">Guest</label>
+                                    <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                                </div>
+                                <!-- Food choice field -->
+                                <div class="col-3 mb-3">
+                                    <label for="validationDefault01">Food Choice</label>
+                                    <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+                                    </div>
+                                <!-- Allergy field -->
+                                <div class="col-4 mb-3">
+                                    <label for="validationDefault02">Allergies/Food Sensitivities</label>
+                                    <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
+                                </div>
+                                <!-- Remove row button -->
+                                <div class="col-1 mb-3">
+                                    <button class="btn btn-danger btn-form mt-4" disabled="true" onclick="removeRow(this)">X</button>
+                                </div>
+                            </div>
+                            <!-- Form row template -->
+                            <div class="genericTableRowContainer">
+                                <template class="tableRowTemplate">
+                                    <div class="row">
+                                        <!-- Name field -->
+                                        <div class="col-4 mb-3">
+                                            <label for="validationDefault01">Guest</label>
+                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                                        </div>
+                                        <!-- Food choice field -->
+                                        <div class="col-3 mb-3">
+                                            <label for="validationDefault01">Food Choice</label>
+                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+                                            </div>
+                                        <!-- Allergy field -->
+                                        <div class="col-4 mb-3">
+                                            <label for="validationDefault02">Allergies/Food Sensitivities</label>
+                                            <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
+                                        </div>
+                                        <!-- Remove row button -->
+                                        <div class="col-1 mb-3">
+                                            <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this)">X</button>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                            <!-- New row button -->
+                            <button class="btn btn-success btn-form mb-3" onclick="addRow(this.parentElement)">Add Person</button>
+                        </div>
+                        <hr>
+                    </template>
                 </div>
-                <div class="col-4 mb-3">
-                    <label for="validationDefault01">Partner 2</label>
-                    <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="validationDefault01">Food Choice</label>
-                    <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
-                    </div>
-                <div class="col-4 mb-3">
-                    <label for="validationDefault02">Allergies/Food Sensitivities</label>
-                    <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
-                </div>
-                <button class="btn btn-success btn-form mb-3">Add Person</button>
-                <hr>
-                <button class="btn btn-success btn-form mb-3">Add Table</button>
+                
             </div>
+            <button class="btn btn-success btn-form mb-3" onclick="addTable()">Add Table</button>
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>
     </div>
