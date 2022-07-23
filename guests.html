@@ -31,7 +31,7 @@
 
 <body>
 
- <!-- ======== Nav Section ===========-->
+ <!--======== Nav Section ===========-->
  <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-around mt-4 mb-4" data-aos="fade-in">
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
@@ -50,80 +50,83 @@
 
     <div class="container pt-5" data-aos="fade-in">
         <form>
+
+            <!-- =========== WEDDING DETAILS FORM =========== -->
             <div class="form-row">
                 <div class="col-md-3 mb-3">
-                <h3>Wedding Details</h3>
-                <label for="validationDefault01">Partner 1</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                    <h3>Wedding Details</h3>
+                    <label for="validationDefault01">Partner 1</label>
+                    <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
                 </div>
                 <div class="col-md-3 mb-3">
-                <label for="validationDefault02">Partner 2</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Full name" required>
+                    <label for="validationDefault02">Partner 2</label>
+                    <input type="text" class="form-control" id="validationDefault02" placeholder="Full name" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-md-3 mb-3">
-                <label for="validationDefault03">Wedding Date</label>
-                <input type="date" class="form-control" id="validationDefault03" placeholder="Wedding Date" required>
+                    <label for="validationDefault03">Wedding Date</label>
+                    <input type="date" class="form-control" id="validationDefault03" placeholder="Wedding Date" required>
                 </div>
                 <div class="col-md-3 mb-3">
-                <label for="validationDefault04">Number of Guests</label>
-                <input type="number" class="form-control" id="validationDefault04" placeholder="0" required disabled>
+                    <label for="validationDefault04">Number of Guests</label>
+                    <input type="number" class="form-control" id="validationDefault04" placeholder="0" required disabled>
                 </div>
             </div>
+
             <hr>
 
-                <!-- HEAD TABLE FORM -->
-                <div id="headForm">
-                    <h3>Head Table</h3>
-                    <!-- Partner 1 -->
-                    <div class="row">
-                        <!-- Name field -->
-                        <div class="col-4 mb-3">
-                            <label for="validationDefault01">Partner 1</label>
-                            <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
-                        </div>
-                        <!-- Food choice field -->
-                        <div class="col-3 mb-3">
-                            <label for="validationDefault01">Food Choice</label>
-                            <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
-                            </div>
-                        <!-- Allergy field -->
-                        <div class="col-4 mb-3">
-                            <label for="validationDefault02">Allergies/Food Sensitivities</label>
-                            <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
-                        </div>
-                        <!-- Remove row button -->
-                        <div class="col-1 mb-3">
-                            <button class="btn btn-danger btn-form mt-4" disabled="true" onclick="removeRow(this)">X</button>
-                        </div>
+            <!-- =========== HEAD TABLE FORM =========== -->
+            <div id="headForm">
+                <h3>Head Table</h3>
+                <!-- Partner 1 -->
+                <div class="row">
+                    <!-- Name field -->
+                    <div class="col-4 mb-3">
+                        <label for="validationDefault01">Partner 1</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
                     </div>
-                    <!-- Partner 2 -->
-                    <div class="row">
-                        <!-- Name field -->
-                        <div class="col-4 mb-3">
-                            <label for="validationDefault01">Partner 2</label>
-                            <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                    <!-- Food choice field -->
+                    <div class="col-3 mb-3">
+                        <label for="validationDefault01">Food Choice</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
                         </div>
-                        <!-- Food choice field -->
-                        <div class="col-3 mb-3">
-                            <label for="validationDefault01">Food Choice</label>
-                            <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
-                            </div>
-                        <!-- Allergy field -->
-                        <div class="col-4 mb-3">
-                            <label for="validationDefault02">Allergies/Food Sensitivities</label>
-                            <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
-                        </div>
-                        <!-- Remove row button -->
-                        <div class="col-1 mb-3">
-                            <button class="btn btn-danger btn-form mt-4" disabled="true" onclick="removeRow(this)">X</button>
-                        </div>
+                    <!-- Allergy field -->
+                    <div class="col-4 mb-3">
+                        <label for="validationDefault02">Allergies/Food Sensitivities</label>
+                        <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
                     </div>
+                    <!-- Remove row button -->
+                    <div class="col-1 mb-3">
+                        <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this)">X</button>
+                    </div>
+                </div>
+                <!-- Partner 2 -->
+                <div class="row">
+                    <!-- Name field -->
+                    <div class="col-4 mb-3">
+                        <label for="validationDefault01">Partner 2</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                    </div>
+                    <!-- Food choice field -->
+                    <div class="col-3 mb-3">
+                        <label for="validationDefault01">Food Choice</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+                        </div>
+                    <!-- Allergy field -->
+                    <div class="col-4 mb-3">
+                        <label for="validationDefault02">Allergies/Food Sensitivities</label>
+                        <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'" required>
+                    </div>
+                    <!-- Remove row button -->
+                    <div class="col-1 mb-3">
+                        <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this)">X</button>
+                    </div>
+                </div>
 
                 <hr>
 
-                <!-- BRIDAL TABLE FORM -->
+                <!-- =========== BRIDAL TABLE FORM =========== -->
                 <div id="bridalForm">
                     <h3>Bridal Party Table</h3>
                     <!-- Form row template -->
@@ -156,11 +159,11 @@
 
                 <hr>
 
-                <!-- GENERIC TABLE FORM -->
+                <!-- =========== GENERIC TABLE FORMS =========== -->
                 <div id="genericTableContainer">
                     <template class="tableTemplate">
                         <div class="tableForm">
-                            <h3>Table One</h3>
+                            <h3 class="genericTableTitle">Table</h3>
                             <div class="row">
                                 <!-- Details field -->
                                 <div class="col-12 mb-3">
@@ -186,7 +189,7 @@
                                 </div>
                                 <!-- Remove row button -->
                                 <div class="col-1 mb-3">
-                                    <button class="btn btn-danger btn-form mt-4" disabled="true" onclick="removeRow(this)">X</button>
+                                    <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this)">X</button>
                                 </div>
                             </div>
                             <!-- Form row template -->
@@ -217,14 +220,15 @@
                             </div>
                             <!-- New row button -->
                             <button class="btn btn-success btn-form mb-3" onclick="addRow(this.parentElement)">Add Person</button>
+                            <button class="btn btn-danger btn-form mb-3" onclick="removeTable(this)">Remove Table</button>
+                            <hr>
                         </div>
-                        <hr>
                     </template>
                 </div>
                 
             </div>
-            <button class="btn btn-success btn-form mb-3" onclick="addTable()">Add Table</button>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-success btn-form mb-5" onclick="addTable()">Add Table</button>
+            <button class="btn btn-primary mb-5" type="submit">Submit</button>
         </form>
     </div>
 
