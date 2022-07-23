@@ -1,4 +1,11 @@
+var guestCount = 2;
 var tableIteration = 1;
+
+function updateGuestCount(){
+    guestCount++;
+    var gusetCountDisplay = document.getElementById("guestCount");
+    gusetCountDisplay.innerText = guestCount.toString();
+}
 
 /**
  * Creates a new table within #bridalForm
@@ -8,6 +15,7 @@ function addBridalRow(){
     var clon = temp.content.cloneNode(true);
     var formSection = document.getElementById("bridalForm");
     formSection.appendChild(clon);
+    updateGuestCount();
 }
 
 /**
@@ -37,6 +45,7 @@ function addRow(tableForm){
     var newRow = row.content.cloneNode(true);
     var rowContainer = tableForm.getElementsByClassName("genericTableRowContainer")[0];
     rowContainer.appendChild(newRow);
+    updateGuestCount();
 }
 
 function removeRow(element){
