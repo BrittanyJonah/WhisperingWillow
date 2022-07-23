@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
 }
 
-hr
+.hr-short
 {
   width: 45%;
   margin: 0 25% 0 25%;
@@ -42,6 +42,12 @@ hr
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  transition: 0.3s;
+  opacity: 0.8;
+}
+
+.ww-button:hover {
+  opacity: 1;
 }
 
 .arrow {
@@ -54,31 +60,6 @@ hr
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-}
-
-.ww-button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.ww-button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.ww-button:hover span {
-  padding-right: 25px;
-}
-
-.ww-button:hover span:after {
-  opacity: 1;
-  right: 0;
 }
 
 
@@ -337,7 +318,7 @@ hr
   top: calc(100% + 30px);
   margin: 0;
   padding: 10px 0;
-  z-index: 99;
+  z-index: 1;
   opacity: 0;
   visibility: hidden;
   background: rgb(247, 236, 236);
@@ -810,7 +791,7 @@ section {
 --------------------------------------------------------------*/
 .about {
   height: 1080px;
-  background: url("../img/sun.jpg") center center;
+  background: url("../img/header.jpg") center center;
   background-size: cover;
   position: relative;
   padding: 80px 0;
@@ -1141,39 +1122,21 @@ section {
 /*--------------------------------------------------------------
 # Packages
 --------------------------------------------------------------*/
+
 .para1 {
-  background: url(../img/about.jpg) center center no-repeat;
-  background-size: cover;
-  position: relative;
-  margin-right: 20px;
-}
-
-.para1::before {
-  content: '';
-  background-color: rgba(0, 0, 0, 0);
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-
-.para1 .section-title h2 {
-  color: rgb(247, 236, 236);
-}
-
-.para1 .container {
-  position: relative;
+   background: url(../img/left-about.jpg) center center no-repeat;
+   margin-right: 20px;
 }
 
 @media (min-width: 1024px) {
   .para1 {
-    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
 .para2 {
-  background: url(../img/lake-view.jpg) center center no-repeat;
+  background: url(../img/right-about.jpg) center center no-repeat;
   background-size: cover;
   position: relative;
   margin-left: 20px;
@@ -1197,11 +1160,15 @@ section {
   position: relative;
 }
 
+@media (min-width: 1024px) {
+  .para2 {
+  }
+}
+
 .para3 {
   background: url(../img/chandelier.jpg) center center no-repeat;
   background-size: cover;
   position: relative;
-  margin-left: 20px;
 }
 
 .para3::before {
@@ -1224,7 +1191,6 @@ section {
 
 @media (min-width: 1024px) {
   .para3 {
-    background-attachment: fixed;
   }
 }
 
@@ -1428,6 +1394,13 @@ section {
 
 .book-a-table .php-email-form button[type="submit"]:hover {
   background: #d5b9ab;
+}
+
+.visit-section {
+  background-image: url(/assets/img/house.jpg) !important;
+  background-repeat: no-repeat;
+  background-position: center !important;
+  height: 450px;
 }
 
 /*--------------------------------------------------------------
@@ -1915,4 +1888,9 @@ section {
   text-align: center;
   font-size: 13px;
   color: rgb(247, 236, 236);
+}
+
+.btn-form {
+  margin-left: 10px;
+  max-width: 150px;
 }
