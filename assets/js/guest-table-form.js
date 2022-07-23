@@ -1,12 +1,6 @@
 var guestCount = 2;
 var tableIteration = 1;
 
-function updateGuestCount(){
-    guestCount++;
-    var gusetCountDisplay = document.getElementById("guestCount");
-    gusetCountDisplay.innerText = guestCount.toString();
-}
-
 /**
  * Creates a new table within #bridalForm
  */
@@ -15,7 +9,7 @@ function addBridalRow(){
     var clon = temp.content.cloneNode(true);
     var formSection = document.getElementById("bridalForm");
     formSection.appendChild(clon);
-    updateGuestCount();
+    increaseGuestCount();
 }
 
 /**
@@ -34,6 +28,7 @@ function addTable(){
     //Add new table to table container
     var tableContainer = document.getElementById("genericTableContainer");
     tableContainer.appendChild(newTable);
+    increaseGuestCount();
 }
 
 /**
@@ -45,14 +40,36 @@ function addRow(tableForm){
     var newRow = row.content.cloneNode(true);
     var rowContainer = tableForm.getElementsByClassName("genericTableRowContainer")[0];
     rowContainer.appendChild(newRow);
-    updateGuestCount();
+    increaseGuestCount();
 }
 
 function removeRow(element){
     element.parentElement.parentElement.remove();
+    decreaseGuestCount();
 }
 
 function removeTable(element){
-    element.parentElement.remove();
+    var tableForm = element.parentElement;
+
+    //Count guests on table to be deleted
+    var guestCount = tableForm.getElementsByClassName("guestRow").length;
+    decreaseGuestCount(guestCount);
+
+    tableForm.remove();
     tableIteration--;
+}
+
+function increaseGuestCount(){
+    guestCount++;
+    var gusetCountDisplay = document.getElementById("guestCount");
+    gusetCountDisplay.innerText = guestCount.toString();
+}
+
+function decreaseGuestCount(rowCount = 1){
+    if (rowCount === 1){
+        guestCount--;
+    } else guestCount -= rowCount;
+
+    var gusetCountDisplay = document.getElementById("guestCount");
+    gusetCountDisplay.innerText = guestCount.toString();
 }
