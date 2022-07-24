@@ -2,7 +2,7 @@ var guestCount = 2;
 var tableIteration = 1;
 
 /**
- * Creates a new table within #bridalForm
+ * Creates a new row within #bridalForm
  */
 function addBridalRow(){
     var temp = document.getElementsByClassName("bridalTemplate")[0];
@@ -32,8 +32,8 @@ function addTable(){
 }
 
 /**
- * Creates new input field within a table
- * @param {Container of the current table} tableForm 
+ * Creates new input field within generic table
+ * @param {HTMLElement} tableForm 
  */
 function addRow(tableForm){
     var row = tableForm.getElementsByClassName("tableRowTemplate")[0];
@@ -43,13 +43,21 @@ function addRow(tableForm){
     increaseGuestCount();
 }
 
+/**
+ * Removes row and decrements guestCount
+ * @param {HTMLElement} element 
+ */
 function removeRow(element){
     element.parentElement.parentElement.remove();
     decreaseGuestCount();
 }
 
+/**
+ * Removes table and decrements guestCount by the number of rows contained within
+ * @param {HTMLElement} element 
+ */
 function removeTable(element){
-    var tableForm = element.parentElement;
+    var tableForm = element.parentElement; //.tableForm
 
     //Count guests on table to be deleted
     var guestCount = tableForm.getElementsByClassName("guestRow").length;
@@ -59,12 +67,19 @@ function removeTable(element){
     tableIteration--;
 }
 
+/**
+ * Increase guestCount by 1
+ */
 function increaseGuestCount(){
     guestCount++;
     var gusetCountDisplay = document.getElementById("guestCount");
     gusetCountDisplay.innerText = guestCount.toString();
 }
 
+/**
+ * Decrease guestCount when removing a row or table of rows
+ * @param {number} rowCount Default is 1; specify count for tables
+ */
 function decreaseGuestCount(rowCount = 1){
     if (rowCount === 1){
         guestCount--;
