@@ -2,13 +2,13 @@ var guestCount = 2;
 var tableIteration = 1;
 
 /**
- * Creates a new row within #bridalForm
+ * Creates a new row using the template within #bridalForm
  */
 function addBridalRow(){
-    var temp = document.getElementsByClassName("bridalTemplate")[0];
-    var clon = temp.content.cloneNode(true);
+    var template = document.getElementsByClassName("bridalRowTemplate")[0];
+    var copy = template.content.cloneNode(true);
     var formSection = document.getElementById("bridalForm");
-    formSection.appendChild(clon);
+    formSection.appendChild(copy);
     increaseGuestCount();
 }
 
