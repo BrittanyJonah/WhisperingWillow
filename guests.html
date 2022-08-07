@@ -98,7 +98,7 @@
                     </div>
                     <!-- Remove row button -->
                     <div class="col-1 mb-3">
-                        <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this)">X</button>
+                        <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                     </div>
                 </div>
                 <!-- Partner 2 -->
@@ -120,7 +120,7 @@
                     </div>
                     <!-- Remove row button -->
                     <div class="col-1 mb-3">
-                        <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this)">X</button>
+                        <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                     </div>
                 </div>
 
@@ -149,13 +149,13 @@
                             </div>
                             <!-- Remove row button -->
                             <div class="col-1 mb-3">
-                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this)">X</button>
+                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                             </div>
                         </div>
                     </template>
                 </div>
                 <!-- New row button -->
-                <button class="btn btn-success btn-form mb-3" onclick="addBridalRow()">Add Person</button>
+                <button class="btn btn-success btn-form mb-3" onclick="addBridalRow(); return false">Add Person</button>
 
                 <hr>
 
@@ -189,7 +189,7 @@
                                 </div>
                                 <!-- Remove row button -->
                                 <div class="col-1 mb-3">
-                                    <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this)">X</button>
+                                    <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                                 </div>
                             </div>
                             <!-- Form row template -->
@@ -213,21 +213,21 @@
                                         </div>
                                         <!-- Remove row button -->
                                         <div class="col-1 mb-3">
-                                            <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this)">X</button>
+                                            <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                                         </div>
                                     </div>
                                 </template>
                             </div>
                             <!-- New row button -->
-                            <button class="btn btn-success btn-form mb-3" onclick="addRow(this.parentElement)">Add Person</button>
-                            <button class="btn btn-danger btn-form mb-3" onclick="removeTable(this)">Remove Table</button>
+                            <button class="btn btn-success btn-form mb-3" onclick="addRow(this.parentElement); return false">Add Person</button>
+                            <button class="btn btn-danger btn-form mb-3" onclick="removeTable(this); return false">Remove Table</button>
                             <hr>
                         </div>
                     </template>
                 </div>
                 
             </div>
-            <button class="btn btn-success btn-form mb-5" onclick="addTable()">Add Table</button>
+            <button class="btn btn-success btn-form mb-5" onclick="addTable(); return false">Add Table</button>
             <button class="btn btn-primary mb-5" type="submit">Submit</button>
         </form>
     </div>
