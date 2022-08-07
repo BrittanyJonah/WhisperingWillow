@@ -7,12 +7,12 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  background: #0c0909;
+  background: #3E4446;
   color: rgb(247, 236, 236);
 }
 
 a {
-  color: #d5b9ab;
+  color: #D6B9AB;
   text-decoration: none;
 }
 
@@ -24,6 +24,44 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
 }
+
+.hr-short
+{
+  width: 45%;
+  margin: 0 25% 0 25%;
+}
+
+.ww-button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #D6B9AB;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.3s;
+  opacity: 0.8;
+}
+
+.ww-button:hover {
+  opacity: 1;
+}
+
+.arrow {
+  border: solid #d5b9ab;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -280,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
   top: calc(100% + 30px);
   margin: 0;
   padding: 10px 0;
-  z-index: 99;
+  z-index: 1;
   opacity: 0;
   visibility: hidden;
   background: rgb(247, 236, 236);
@@ -636,6 +674,19 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
+.img-gallery {
+  height: 450px;
+  object-fit: contain;
+}
+.img-gallery-2 {
+  height: 600px;
+  object-fit: contain;
+}
+
+.text-gallery{
+  padding: 100px 50px;
+}
+
 section {
   padding: 60px 0;
   overflow: hidden;
@@ -739,7 +790,8 @@ section {
 # About
 --------------------------------------------------------------*/
 .about {
-  background: url("../img/wine.jpg") center center;
+  height: 1080px;
+  background: url("../img/header.jpg") center center;
   background-size: cover;
   position: relative;
   padding: 80px 0;
@@ -747,7 +799,7 @@ section {
 
 .about:before {
   content: "";
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -834,6 +886,10 @@ section {
   .about {
     background-attachment: fixed;
   }
+}
+
+#grey {
+  background-color: #3E4446;
 }
 
 /*--------------------------------------------------------------
@@ -1064,8 +1120,80 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Events
+# Packages
 --------------------------------------------------------------*/
+
+.para1 {
+   background: url(../img/left-about.jpg) center center no-repeat;
+   margin-right: 20px;
+}
+
+@media (min-width: 1024px) {
+  .para1 {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.para2 {
+  background: url(../img/right-about.jpg) center center no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-left: 20px;
+}
+
+.para2::before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.para2 .section-title h2 {
+  color: rgb(247, 236, 236);
+}
+
+.para2 .container {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .para2 {
+  }
+}
+
+.para3 {
+  background: url(../img/chandelier.jpg) center center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.para3::before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.para3 .section-title h2 {
+  color: rgb(247, 236, 236);
+}
+
+.para3 .container {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .para3 {
+  }
+}
+
 .events {
   background: url(../img/chandelier.jpg) center center no-repeat;
   background-size: cover;
@@ -1074,7 +1202,7 @@ section {
 
 .events::before {
   content: '';
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
   right: 0;
@@ -1266,6 +1394,13 @@ section {
 
 .book-a-table .php-email-form button[type="submit"]:hover {
   background: #d5b9ab;
+}
+
+.visit-section {
+  background-image: url(/assets/img/house.jpg) !important;
+  background-repeat: no-repeat;
+  background-position: center !important;
+  height: 450px;
 }
 
 /*--------------------------------------------------------------
@@ -1753,4 +1888,13 @@ section {
   text-align: center;
   font-size: 13px;
   color: rgb(247, 236, 236);
+}
+
+.btn-form {
+  margin-left: 10px;
+  max-width: 150px;
+}
+
+.float-right {
+  float: right;
 }
