@@ -1,13 +1,13 @@
-var guestCount = 2;
-var tableIteration = 1;
+let guestCount = 2;
+let tableIteration = 1;
 
 /**
  * Creates a new row using the template within #bridalForm
  */
 function addBridalRow(){
-    var template = document.getElementsByClassName("bridalRowTemplate")[0];
-    var copy = template.content.cloneNode(true);
-    var formSection = document.getElementById("bridalForm");
+    let template = document.getElementsByClassName("bridalRowTemplate")[0];
+    let copy = template.content.cloneNode(true);
+    let formSection = document.getElementById("bridalForm");
     formSection.appendChild(copy);
     increaseGuestCount();
 }
@@ -17,16 +17,16 @@ function addBridalRow(){
  */
 function addTable(){
     //Create new table from HTML template
-    var table = document.getElementsByClassName("tableTemplate")[0];
-    var newTable = table.content.cloneNode(true);
+    let table = document.getElementsByClassName("tableTemplate")[0];
+    let newTable = table.content.cloneNode(true);
 
     //Set table title dynamically 
-    var newTableTitle = newTable.querySelector(".genericTableTitle");
+    let newTableTitle = newTable.querySelector(".genericTableTitle");
     newTableTitle.innerText = `Table ${tableIteration}`;
     tableIteration++;
 
     //Add new table to table container
-    var tableContainer = document.getElementById("genericTableContainer");
+    let tableContainer = document.getElementById("genericTableContainer");
     tableContainer.appendChild(newTable);
     increaseGuestCount();
 }
@@ -36,9 +36,9 @@ function addTable(){
  * @param {HTMLElement} tableForm 
  */
 function addRow(tableForm){
-    var row = tableForm.getElementsByClassName("tableRowTemplate")[0];
-    var newRow = row.content.cloneNode(true);
-    var rowContainer = tableForm.getElementsByClassName("genericTableRowContainer")[0];
+    let row = tableForm.getElementsByClassName("tableRowTemplate")[0];
+    let newRow = row.content.cloneNode(true);
+    let rowContainer = tableForm.getElementsByClassName("genericTableRowContainer")[0];
     rowContainer.appendChild(newRow);
     increaseGuestCount();
 }
@@ -57,10 +57,10 @@ function removeRow(element){
  * @param {HTMLElement} element 
  */
 function removeTable(element){
-    var tableForm = element.parentElement; //.tableForm
+    let tableForm = element.parentElement; //.tableForm
 
     //Count guests on table to be deleted
-    var guestCount = tableForm.getElementsByClassName("guestRow").length;
+    let guestCount = tableForm.getElementsByClassName("guestRow").length;
     decreaseGuestCount(guestCount);
 
     tableForm.remove();
@@ -72,7 +72,7 @@ function removeTable(element){
  */
 function increaseGuestCount(){
     guestCount++;
-    var gusetCountDisplay = document.getElementById("guestCount");
+    let gusetCountDisplay = document.getElementById("guestCount");
     gusetCountDisplay.innerText = guestCount.toString();
 }
 
@@ -85,6 +85,26 @@ function decreaseGuestCount(rowCount = 1){
         guestCount--;
     } else guestCount -= rowCount;
 
-    var gusetCountDisplay = document.getElementById("guestCount");
+    let gusetCountDisplay = document.getElementById("guestCount");
     gusetCountDisplay.innerText = guestCount.toString();
+}
+
+/**
+ * Creates a new PDF file using the given input
+ */
+function submitPDF(){
+    const doc = new jsPDF();
+
+    // Image not working
+    // let pdfImage = "../img/logo-lg.jpg";
+    // doc.addImage("../img/logo-lg.jpg", "JPEG", 0, 0, 200, 50);
+
+    let entries = document.getElementsByTagName("input");
+
+    for (let index = 0; index < entries.length; index++) {
+        doc.text(entries[index].id.toString(), 10, index*10);
+        doc.text(entries[index].value.toString(), 100, index*10);
+    }
+
+    doc.save("WW-SeatingPlan.pdf");
 }
