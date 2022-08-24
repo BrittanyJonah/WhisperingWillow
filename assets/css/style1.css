@@ -13,6 +13,19 @@
   text-align: center;
 }
 
+.wwFont2 {
+  font-family: "wwFont" !important;
+  font-size: 60px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.wwFont3 {
+  font-family: "wwFont" !important;
+  font-size: 60px;
+  letter-spacing: 2px;
+}
+
 .fancyFont {
   font-family: 'Cinzel', serif !important;
   letter-spacing: 4px;
@@ -21,6 +34,17 @@
 .fancyFont2 {
   font-family: 'Quicksand', serif !important;
   letter-spacing: 4px;
+}
+
+.fancyFont3 {
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 4px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.fancyFont4 {
+  font-family: 'Quicksand', serif !important;
 }
 
 /*--------------------------------------------------------------
@@ -53,12 +77,30 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 25% 0 25%;
 }
 
+.hr-w
+{
+  color: #fff !important;
+   margin: auto;
+}
+
 .spacing {
   letter-spacing: 5px;
 }
 
 .text-grey {
 color: #858585 !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color:#fff !important;
+}
+
+.text-pink {
+  color: #D6B9AB;
 }
 
 .ww-button {
@@ -168,11 +210,11 @@ color: #858585 !important;
 
 .back-to-top:hover {
   background: #f7edd8;
-  color: #1a1514;
+  color: #fff;
 }
 
 .back-to-top:hover i {
-  color: #444444;
+  color: #fff;
 }
 
 .back-to-top.active {
@@ -350,7 +392,7 @@ color: #858585 !important;
 }
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #f7edd8;
+  color: #d5b9ab;
 }
 
 .navbar .dropdown ul {
@@ -383,7 +425,7 @@ color: #858585 !important;
 }
 
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #f7edd8;
+  color: #d5b9ab;
 }
 
 .navbar .dropdown:hover > ul {
@@ -754,7 +796,7 @@ section {
 }
 
 .section-bg {
-  background-color: #1a1514;
+  background-color: #FEFCF8;
 }
 
 .section-title {
@@ -1175,14 +1217,14 @@ section {
 # Events
 --------------------------------------------------------------*/
 .events {
-  background: url(../img/chandelier.jpg) center center no-repeat;
+  background: url(../img/couple3.jpg) center center no-repeat;
   background-size: cover;
   position: relative;
 }
 
 .events::before {
   content: '';
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.35);
   position: absolute;
   top: 0;
   right: 0;
@@ -1378,6 +1420,7 @@ section {
 .testimonials .testimonial-item {
   box-sizing: content-box;
   min-height: 320px;
+  color: #858585;
 }
 
 .testimonials .testimonial-item .testimonial-img {
@@ -1386,19 +1429,19 @@ section {
   margin: -40px 0 0 40px;
   position: relative;
   z-index: 2;
-  border: 6px solid #3d4547;
+  border: 6px solid #d5b9ab;
 }
 
 .testimonials .testimonial-item h3 {
   font-size: 18px;
   font-weight: bold;
   margin: 10px 0 5px 45px;
-  color: white;
+  color: #d5b9ab;
 }
 
 .testimonials .testimonial-item h4 {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #858585;
   margin: 0 0 0 45px;
 }
 
@@ -1424,7 +1467,7 @@ section {
   font-style: italic;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;
-  background: #261f1d;
+  background: #FEFCF8;
   position: relative;
   border-radius: 6px;
   position: relative;
@@ -1439,7 +1482,7 @@ section {
 .testimonials .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(166, 165, 165, 0.4);
   opacity: 1;
 }
 
@@ -1574,14 +1617,14 @@ section {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 5px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .contact .info p {
   padding: 0 0 0 60px;
   margin-bottom: 0;
   font-size: 14px;
-  color: #bab3a6;
+  color: #858585;
 }
 
 .contact .info .open-hours, .contact .info .email, .contact .info .phone {
@@ -1645,9 +1688,13 @@ section {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
-  background: #0c0b09;
+  background: #fff;
   border-color: #625b4b;
   color: white;
+}
+
+i {
+  color: #fff;
 }
 
 .contact .php-email-form input::-webkit-input-placeholder, .contact .php-email-form textarea::-webkit-input-placeholder {
@@ -1710,16 +1757,14 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: rgb(7, 7, 7);
-  padding: 0 0 30px 0;
-  color: rgb(247, 236, 236);
+  background: #fff;
+  color: #858585;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  background: #0c0a09;
-  border-top: 1px solid #372e2a;
-  border-bottom: 1px solid #28221f;
+  background: #fff;
+  border-top: 1px solid #635a56;
   padding: 60px 0 30px 0;
 }
 
@@ -1733,22 +1778,22 @@ section {
   padding: 2px 0 2px 0;
   line-height: 1;
   font-weight: 300;
-  font-family: 'MonteCarlo', cursive;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #footer .footer-top .footer-info p {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Playfair Display", serif;
-  color: rgb(247, 236, 236);
+  font-family: 'Quicksand', serif;
+  color: #858585;
 }
 
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #453a35;
-  color: rgb(247, 236, 236);
+  background: #d5b9ab;
+  color: #fff;
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -1760,15 +1805,15 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #d5b9ab;
-  color: rgb(247, 236, 236);
+  background: #b69787;
+  color: #fff;
   text-decoration: none;
 }
 
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: 600;
-  color: rgb(247, 236, 236);
+  color:  #858585;
   position: relative;
   padding-bottom: 12px;
 }
@@ -1785,7 +1830,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #d5b9ab;
+  color:  #858585;
   font-size: 18px;
   line-height: 1;
 }
@@ -1801,14 +1846,14 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: rgb(247, 236, 236);
+  color:  #858585;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #d5b9ab;
+  color:  #858585;
 }
 
 #footer .footer-top .footer-newsletter form {
@@ -1824,8 +1869,8 @@ section {
   border: 0;
   padding: 4px;
   width: calc(100% - 110px);
-  background: #28211f;
-  color: white;
+  background: #d5b9ab;
+  color:  #858585;
 }
 
 #footer .footer-top .footer-newsletter form input[type="submit"] {
@@ -1838,7 +1883,7 @@ section {
   font-size: 16px;
   padding: 0 20px 2px 20px;
   background: none;
-  color: rgb(247, 236, 236);
+  color: #858585;
   transition: 0.3s;
   border-radius: 50px;
 }
