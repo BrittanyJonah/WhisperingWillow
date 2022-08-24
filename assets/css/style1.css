@@ -1173,17 +1173,17 @@ section {
 }
 
 .specials .nav-link:hover {
-  color: #C6B29F;
+  color: #ebd5ca;
 }
 
 .specials .nav-link.active {
   color: #444;
-  background: #e9e1d9;
-  border-color: #e9e1d9;
+  background: #ebd5ca;
+  border-color: #ebd5ca;
 }
 
 .specials .nav-link:hover {
-  border-color: #e9e1d9;
+  border-color: #ebd5ca;
 }
 
 .specials .tab-pane.active {
@@ -1761,14 +1761,14 @@ i {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #fff;
+  background: #FEFCF8;
   color: #858585;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  background: #fff;
-  border-top: 1px solid #635a56;
+  background: #FEFCF8;
+  border: 1px solid #635a56;
   padding: 60px 0 30px 0;
 }
 
