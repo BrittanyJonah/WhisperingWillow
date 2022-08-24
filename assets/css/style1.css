@@ -149,7 +149,7 @@ color: #858585 !important;
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #3E4446;
+  background: #f7edd8;
 }
 
 #preloader:before {
@@ -157,9 +157,9 @@ color: #858585 !important;
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #3E4446;
-  border-top-color: #f7edd8;
-  border-bottom-color: #f7edd8;
+  border: 6px solid #fddccc;
+  border-top-color: #c9a492;
+  border-bottom-color: #fddccc;
   border-radius: 50%;
   width: 60px;
   height: 60px;
