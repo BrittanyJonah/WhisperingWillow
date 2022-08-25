@@ -26,6 +26,13 @@
   letter-spacing: 2px;
 }
 
+.wwFont4 {
+  font-family: "wwFont" !important;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
 .fancyFont {
   font-family: 'Cinzel', serif !important;
   letter-spacing: 4px;
