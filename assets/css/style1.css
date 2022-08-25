@@ -284,12 +284,12 @@ color: #858585 !important;
 --------------------------------------------------------------*/
 /*logodistance*/
 .logo-ww {
-  margin-top: -540px;
+  margin-top: -550px;
 }
 
 #header {
-  background: rgba(255, 255, 255, 0.45);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
@@ -298,8 +298,8 @@ color: #858585 !important;
 
 #header.header-scrolled {
   top: 0;
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #fff;
+  background: rgba(247, 243, 236, 0.95);
+  border-bottom: 1px solid #f7edd8;
 }
 
 #header .logo {
@@ -369,7 +369,7 @@ color: #858585 !important;
 .navbar li {
   position: relative;
   padding-right: 25px;
-  border-right: solid 1px #444444;
+  border-right: solid 1px rgb(36, 36, 36);
   min-width: 120px;
 }
 
@@ -378,7 +378,7 @@ color: #858585 !important;
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  color: rgb(36, 36, 36);
+  color: rgb(30, 30, 30);
   white-space: nowrap;
   transition: 0.3s;
   font-size: 13px;
@@ -392,7 +392,7 @@ color: #858585 !important;
 }
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #C6B29F;
+  color: #9f8b79;
 }
 
 .navbar .dropdown ul {
