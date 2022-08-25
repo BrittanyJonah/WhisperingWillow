@@ -283,22 +283,16 @@ color: #858585 !important;
 # Header
 --------------------------------------------------------------*/
 /*logodistance*/
-.logo-ww {
-  margin-top: -550px;
-}
-
 #header {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
-  top: 200px;
 }
 
 #header.header-scrolled {
   top: 0;
-  background: rgba(250, 247, 243, 0.95);
+  background: rgba(250, 247, 243, 1);
   border-bottom: 1px solid #f7f0e3;
 }
 
@@ -1220,11 +1214,16 @@ section {
   background: url(../img/couple3.jpg) center center no-repeat;
   background-size: cover;
   position: relative;
+  color: #f9f1e9 !important;
+}
+
+li {
+    text-decoration: none;
 }
 
 .events::before {
   content: '';
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.55);
   position: absolute;
   top: 0;
   right: 0;
@@ -1233,7 +1232,7 @@ section {
 }
 
 .events .section-title h2 {
-  color: rgb(247, 236, 236);
+  color: #f9f1e9
 }
 
 .events .container {
@@ -1258,7 +1257,7 @@ section {
 .events .event-item h3 {
   font-weight: 600;
   font-size: 26px;
-  color: #C6B29F;
+  color: #f9f1e9;
 }
 
 .events .event-item .price {
@@ -1269,7 +1268,7 @@ section {
 }
 
 .events .event-item .price span {
-  border-bottom: 2px solid #C6B29F;
+  border-bottom: 2px solid #f9f1e9;
 }
 
 .events .event-item ul {
@@ -1284,7 +1283,7 @@ section {
 .events .event-item ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: #C6B29F;
+  color: #f9f1e9;
 }
 
 .events .event-item p:last-child {
@@ -1304,7 +1303,7 @@ section {
 }
 
 .events .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #C6B29F;
+  background-color: #f9f1e9;
 }
 
 /*--------------------------------------------------------------
