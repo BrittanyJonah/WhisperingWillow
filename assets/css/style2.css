@@ -1904,3 +1904,7 @@ i {
   font-size: 13px;
   color: rgb(247, 236, 236);
 }
+
+input {
+  background-color: #FBF7F4 !important;
+}

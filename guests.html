@@ -51,11 +51,11 @@
 
     <div class="container pt-5 d-flex justify-content-center" data-aos="fade-in">
         <form>
-
             <!-- =========== WEDDING DETAILS FORM =========== -->
             <div class="form-row mt-5">
+                <h1 class="text-pink text-center wwFont mb-5">Guestlist Form</h1>
                 <div class="col-md-6 mb-3">
-                    <h3>Wedding Details</h3>
+                    <h3 class="fancyFont">Wedding Details</h3>
                     <label for="validationDefault01">Partner 1</label>
                     <input type="text" class="form-control" id="Partner1" placeholder="Full name" required>
                 </div>
@@ -79,7 +79,7 @@
 
             <!-- =========== HEAD TABLE FORM =========== -->
             <div id="headForm">
-                <h3 class="text-center">Head Table</h3>
+                <h3 class="text-center fancyFont mb-4">Head Table</h3>
                 <!-- Partner 1 -->
                 <div class="row">
                     <!-- Name field -->
@@ -129,7 +129,7 @@
 
                 <!-- =========== BRIDAL TABLE FORM =========== -->
                 <div id="bridalForm">
-                    <h3 class="text-center">Bridal Party Table</h3>
+                    <h3 class="text-center fancyFont mb-4">Bridal Party Table</h3>
                     <!-- Form row template -->
                     <template class="bridalRowTemplate">
                         <div class="row">
@@ -150,7 +150,7 @@
                             </div>
                             <!-- Remove row button -->
                             <div class="col-1 mb-3">
-                                <button class="ww-button btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                             </div>
                         </div>
                     </template>
@@ -164,7 +164,7 @@
                 <div id="genericTableContainer">
                     <template class="tableTemplate">
                         <div class="tableForm">
-                            <h3 class="genericTableTitle text-center">Table</h3>
+                            <h3 class="genericTableTitle text-center fancyFont">Table</h3>
                             <div class="row">
                                 <!-- Details field -->
                                 <div class="col-11 mb-3">
@@ -190,7 +190,7 @@
                                 </div>
                                 <!-- Remove row button -->
                                 <div class="col-1 mb-3">
-                                    <button class="ww-button btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
+                                    <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                                 </div>
                             </div>
                             <!-- Form row template -->
@@ -214,7 +214,7 @@
                                         </div>
                                         <!-- Remove row button -->
                                         <div class="col-1 mb-3">
-                                            <button class="ww-button btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                            <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                                         </div>
                                     </div>
                                 </template>
