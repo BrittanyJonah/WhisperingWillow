@@ -33,6 +33,10 @@
   letter-spacing: 2px;
 }
 
+#contact {
+  background-color: #FBF7F4;
+}
+
 .fancyFont {
   font-family: 'Cinzel', serif !important;
   letter-spacing: 4px;
