@@ -26,33 +26,34 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style2.css" rel="stylesheet">
 </head>
 
 <body>
 
- <!--======== Nav Section ===========-->
- <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-around mt-4 mb-4" data-aos="fade-in">
-    <nav id="navbar" class="navbar order-last order-lg-0">
-      <ul>
-        <li><a class="nav-link scrollto" href="#">HOME</a></li>
-        <li><a class="nav-link scrollto" href="#">THE VENUE</a></li> <!--video-->
-        <li><a class="nav-link scrollto" href="#">PACKAGES</a></li>
-        <li><a class="nav-link scrollto" href="#">CORPORATE</a></li>
-        <li><a class="nav-link scrollto" href="#">VENDORS</a></li> 
-        <li><a class="nav-link scrollto" href="#">FAQ</a></li>
-        <li><a class="nav-link scrollto" href="#">GALLERY</a></li>
-        <li><a class="nav-link scrollto" href="#">CONTACT US</a></li>
-      </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav>
-  </div>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex mb-5">
+    <div class="d-flex align-items-center mx-auto">
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+            <li><a class="nav-link scrollto" href="index3.html">HOME</a></li>
+            <li><a class="nav-link scrollto" href="index3.html#venue">THE VENUE</a></li>
+            <li><a class="nav-link scrollto" href="index3.html#amenities">AMENITIES</a></li>
+            <li><a class="nav-link scrollto active" href="#">PACKAGES</a></li>
+            <li><a class="nav-link scrollto" href="index3.html#gallery">GALLERY</a></li>
+            <li><a class="nav-link scrollto" href="index3.html#testimonials">TESTIMONIALS</a></li>
+            <li><a class="nav-link scrollto" href="index3.html#contact">CONTACT US</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
 
     <div class="container pt-5 d-flex justify-content-center" data-aos="fade-in">
         <form>
 
             <!-- =========== WEDDING DETAILS FORM =========== -->
-            <div class="form-row">
+            <div class="form-row mt-5">
                 <div class="col-md-6 mb-3">
                     <h3>Wedding Details</h3>
                     <label for="validationDefault01">Partner 1</label>
@@ -98,7 +99,7 @@
                     </div>
                     <!-- Remove row button -->
                     <div class="col-1 mb-3">
-                        <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
+                        <button class="ww-button btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                     </div>
                 </div>
                 <!-- Partner 2 -->
@@ -120,7 +121,7 @@
                     </div>
                     <!-- Remove row button -->
                     <div class="col-1 mb-3">
-                        <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
+                        <button class="ww-button btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                     </div>
                 </div>
 
@@ -149,13 +150,13 @@
                             </div>
                             <!-- Remove row button -->
                             <div class="col-1 mb-3">
-                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                <button class="ww-button btn-form mt-4" onclick="removeRow(this); return false">X</button>
                             </div>
                         </div>
                     </template>
                 </div>
                 <!-- New row button -->
-                <button class="btn btn-success btn-form mb-3" onclick="addBridalRow(); return false">+ Guest</button>
+                <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Guest</button>
 
                 <hr>
 
@@ -189,7 +190,7 @@
                                 </div>
                                 <!-- Remove row button -->
                                 <div class="col-1 mb-3">
-                                    <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
+                                    <button class="ww-button btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                                 </div>
                             </div>
                             <!-- Form row template -->
@@ -213,23 +214,23 @@
                                         </div>
                                         <!-- Remove row button -->
                                         <div class="col-1 mb-3">
-                                            <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                            <button class="ww-button btn-form mt-4" onclick="removeRow(this); return false">X</button>
                                         </div>
                                     </div>
                                 </template>
                             </div>
                             <!-- New row button -->
-                            <button class="btn btn-success btn-form mb-3" onclick="addRow(this.parentElement); return false">+ Guest</button>
-                            <button class="btn btn-danger btn-form mb-3" onclick="removeTable(this); return false">Delete Table</button>
+                            <button class="ww-button btn-form mb-3" onclick="addRow(this.parentElement); return false">+ Guest</button>
+                            <button class="ww-button btn-form mb-3" onclick="removeTable(this); return false">Delete Table</button>
                             <hr>
                         </div>
                     </template>
                 </div>
                 
             </div>
-            <button class="btn btn-success btn-form mb-5" onclick="addTable(); return false">+ Table</button>
-            <button class="btn btn-warning mb-5" onClick="submitPDF()">Create PDF</button>
-            <button class="btn btn-primary mb-5" type="submit" onClick="submitPDF()">Submit</button>
+            <button class="ww-button btn-form mb-5" onclick="addTable(); return false">+ Table</button>
+            <button class="ww-button mb-5" onClick="submitPDF()">Create PDF</button>
+            <button class="ww-button mb-5" type="submit" onClick="submitPDF()">Submit</button>
         </form>
     </div>
 
