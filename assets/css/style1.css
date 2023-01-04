@@ -1506,7 +1506,7 @@ section {
 --------------------------------------------------------------*/
 .gallery .gallery-item {
   overflow: hidden;
-  max-height: 370px;
+  max-height: 365px;
   border-right: 1px solid #454035;
   border-bottom: 1px solid #454035;
 }
