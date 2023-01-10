@@ -1507,8 +1507,8 @@ section {
 .gallery .gallery-item {
   overflow: hidden;
   max-height: 365px;
-  border-right: 1px solid #454035;
-  border-bottom: 1px solid #454035;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
 }
 
 .gallery .gallery-item img {
