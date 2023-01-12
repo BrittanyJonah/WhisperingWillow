@@ -1446,7 +1446,7 @@ section {
 .testimonials .testimonial-item h3 {
   font-size: 18px;
   font-weight: bold;
-  margin: 10px 0 5px 45px;
+  margin: 5px 0 5px 35px;
   color: #C6B29F;
 }
 
@@ -1477,7 +1477,7 @@ section {
 .testimonials .testimonial-item p {
   font-style: italic;
   margin: 0 15px 0 15px;
-  padding: 20px 20px 60px 20px;
+  padding: 20px 20px 20px 20px;
   background: #FEFCF8;
   position: relative;
   border-radius: 6px;
