@@ -73,17 +73,20 @@
    */
   let selectHeader = select('#header')
   let selectTopbar = select('#topbar')
+  let selectlogo = select('#logo')
   if (selectHeader) {
     const headerScrolled = () => {
       if (window.scrollY > 100) {
         selectHeader.classList.add('header-scrolled')
         if (selectTopbar) {
           selectTopbar.classList.add('topbar-scrolled')
+          selectlogo.classList.add('logo-scrolled')
         }
       } else {
         selectHeader.classList.remove('header-scrolled')
         if (selectTopbar) {
           selectTopbar.classList.remove('topbar-scrolled')
+          selectlogo.classList.remove('logo-scrolled')
         }
       }
     }
