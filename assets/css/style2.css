@@ -883,16 +883,20 @@ section {
 # About
 --------------------------------------------------------------*/
 .about {
-  background: url("../img/4.jpeg") center center;
+  background: url("../img/chandelier.jpg") center center;
   background-size: cover;
   position: relative;
   padding: 80px 0;
   color: #FFFFFF;
 }
 
+.logo-background {
+  background-color: #3E4446;
+}
+
 .about:before {
   content: "";
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   position: absolute;
   bottom: 0;
   top: 0;
