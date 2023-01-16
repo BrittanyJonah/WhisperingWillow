@@ -6,6 +6,10 @@
   src: url('/assets/fonts/Edwardian.ttf');
 }
 
+#logo-light {
+  display: none;
+}
+
 .wwFont {
   font-family: "wwFont" !important;
   font-size: 80px;
@@ -752,6 +756,8 @@ margin-top: 163px;
   #hero {
     background-attachment: fixed;
   }
+
+  
 }
 
 @media (max-width: 992px) {
@@ -768,6 +774,7 @@ margin-top: 163px;
     padding-top: 130px;
     padding-bottom: 60px;
   }
+  
 }
 
 @media (max-width: 768px) {
@@ -780,7 +787,13 @@ margin-top: 163px;
     line-height: 24px;
   }
   #hero {
-    
+    margin-top: -300px;
+  }
+  #logo-dark {
+    display: none;
+  }
+  #logo-light {
+    display: flex;
   }
 }
 
