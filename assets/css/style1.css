@@ -527,7 +527,7 @@ margin-top: 163px;
 
 .navbar-mobile a {
   padding: 10px 20px;
-  font-size: 15px;
+  font-size: 20px;
   color: #1a1514;
 }
 
@@ -778,6 +778,9 @@ margin-top: 163px;
   #hero h2 {
     font-size: 18px;
     line-height: 24px;
+  }
+  #hero {
+    
   }
 }
 
