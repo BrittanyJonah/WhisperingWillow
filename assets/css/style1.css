@@ -532,7 +532,7 @@ margin-top: 163px;
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #8d6960fb;
+  color: #a86e64;
 }
 
 .navbar-mobile .getstarted {
@@ -560,11 +560,11 @@ margin-top: 163px;
 }
 
 .navbar-mobile .dropdown ul a i {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #f7edd8;
+  color: #a86e64;
 }
 
 .navbar-mobile .dropdown > .dropdown-active {

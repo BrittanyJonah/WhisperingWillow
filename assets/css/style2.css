@@ -454,7 +454,7 @@ color: #858585 !important;
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: rgb(247, 236, 236);
+  color: rgb(68, 68, 68);
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -505,12 +505,12 @@ color: #858585 !important;
 
 .navbar-mobile a {
   padding: 10px 20px;
-  font-size: 15px;
+  font-size: 20px;
   color: #1a1514;
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #f7edd8;
+  color: #a86e64;
 }
 
 .navbar-mobile .getstarted {
@@ -538,7 +538,7 @@ color: #858585 !important;
 }
 
 .navbar-mobile .dropdown ul a i {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
