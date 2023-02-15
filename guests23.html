@@ -50,105 +50,145 @@
     </div>
   </header><!-- End Header -->
 
-    <div class="container pt-5 d-flex justify-content-center" data-aos="fade-in">
+    <div class="container pt-5 mt-5 d-flex justify-content-center" data-aos="fade-in">
+        <!-- =========== WEDDING DETAILS FORM =========== -->
         <form name="guestlist" netlify >
-            <!-- =========== WEDDING DETAILS FORM =========== -->
-            <div class="form-row mt-5">
-                <h1 class="text-pink text-center wwFont mb-5">Guestlist Form</h1>
-                <div class="col-md-6 mb-3">
-                    <h3 class="fancyFont">Wedding Details</h3>
-                    <label for="validationDefault01">Partner 1</label>
-                    <input type="text" class="form-control" id="Partner1" placeholder="Full name" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="validationDefault02">Partner 2</label>
-                    <input type="text" class="form-control" id="Partner2" placeholder="Full name" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 mb-3">
-                    <label for="validationDefault03">Wedding Date</label>
-                    <input type="date" class="form-control" id="WeddingDate" placeholder="Wedding Date" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="validationDefault04">Guest Count</label>
-                    <p id="guestCount">2</p>
-                </div>
+            <h3 class="fancyFont text-center mt-5">About you</h3>
+            <p class="text-center">Add your couple's details and select your meals here</p>
+            <!-- New row button -->
+            <div class="d-flex justify-content-center">
+                <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Bride</button>
+                <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Groom</button>
             </div>
 
             <hr>
-
-            <!-- =========== HEAD TABLE FORM =========== -->
-            <div id="headForm">
-                <h3 class="text-center fancyFont mb-4">Head Table</h3>
-                <!-- Partner 1 -->
-                <div class="row">
-                    <!-- Name field -->
-                    <div class="col-4 mb-3">
-                        <label for="validationDefault01">Partner 1</label>
-                        <input type="text" class="form-control" id="Name" placeholder="Full name" required>
-                    </div>
-                    <!-- Food choice field -->
-                    <div class="col-4 mb-3">
-                        <label for="validationDefault01">Meal Choice</label>
-                        <input type="text" class="form-control" id="FoodChoice" placeholder="Meal" required>
-                        </div>
-                    <!-- Allergy field -->
-                    <div class="col-3 mb-3">
-                        <label for="validationDefault02">Food Allergies</label>
-                        <input type="text" class="form-control" id="Allergies" placeholder="ex: 'Shellfish'" required>
-                    </div>
-                    <!-- Remove row button -->
-                    <div class="col-1 mb-3">
-                        <button class="ww-button btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
-                    </div>
-                </div>
-                <!-- Partner 2 -->
-                <div class="row">
-                    <!-- Name field -->
-                    <div class="col-4 mb-3">
-                        <label for="validationDefault01">Partner 2</label>
-                        <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
-                    </div>
-                    <!-- Food choice field -->
-                    <div class="col-4 mb-3">
-                        <label for="validationDefault01">Meal Choice</label>
-                        <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
-                        </div>
-                    <!-- Allergy field -->
-                    <div class="col-3 mb-3">
-                        <label for="validationDefault02">Food Allergies</label>
-                        <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'">
-                    </div>
-                    <!-- Remove row button -->
-                    <div class="col-1 mb-3">
-                        <button class="ww-button btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
-                    </div>
+            <div class="row mt-5">
+                <h3 class="fancyFont text-center">Wedding Details</h3>
+                <p class="text-center">Tell us all about your special day</p>
+                <!-- Package -->
+                <div class="col-6 mb-3">
+                    <label for="validationDefault02">Wedding Package</label>
+                    <input type="dropdown" class="form-control" id="Package">
                 </div>
 
+                 <!--wedding date-->
+                 <div class="col-md-6 mb-3">
+                    <label for="validationDefault03">Wedding Date</label>
+                    <input type="date" class="form-control" id="WeddingDate" placeholder="Wedding Date" required>
+                </div>
+
+                <!--Guest count-->
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault04">Your Total Guestlist Count</label>
+                    <p id="guestCount">2</p>
+                </div>
+
+                 <!-- Allergy field -->
+                 <div class="col-12 mb-3">
+                    <label for="validationDefault02">Please Include All Guests Food Alergies</label>
+                    <input type="text" class="form-control" id="Allergies" placeholder="Example: Shellfish, Nuts, Avocado, etc.">
+                </div>
+
+                 
+             </div>
+            <hr>
+
+            <form name="guestlist" netlify >
+                
+                <div class="row mt-5">
+                    <h3 class="fancyFont text-center">Music Selections</h3>
+                    <p class="text-center">Please add the songs (including artists) that you would like our DJ to play for you </p>
+                   
+                      <!-- Name field -->
+                      <div class="col-3 mb-3">
+                        <label for="validationDefault01">Playing while guests seat themselves</label>
+                        <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+
+                      <!-- Name field -->
+                      <div class="col-3 mb-3">
+                        <label for="validationDefault01">Wedding Party comes down the aisle </label>
+                        <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+
+                      <!-- Name field -->
+                      <div class="col-3 mb-3">
+                        <label for="validationDefault01">Bride/Groom comes down the aisle</label>
+                        <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+
+                     <!-- Name field -->
+                     <div class="col-3 mb-3">
+                        <label for="validationDefault01">Signing of the documents</label>
+                        <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+
+                     <!-- Name field -->
+                     <div class="col-3 mb-3">
+                        <label for="validationDefault01">While Exiting Ceremony 
+                        </label>
+                        <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+
+                      <!-- Name field -->
+                      <div class="col-3 mb-3">
+                        <label for="validationDefault01">Background music during Cocktail Hour</label>
+                        <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+
+                     <!-- Name field -->
+                     <div class="col-3 mb-3">
+                        <label for="validationDefault01">Grand Entrance as Mr & Mrs </label>
+                        <input type="text" class="form-control" id="validationDefault01">
+                    </div>
+
+                     <!-- Name field -->
+                     <div class="col-3 mb-3">
+                        <label for="validationDefault01">1st Dance</label>
+                        <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+
+                    <!-- Name field -->
+                    <div class="col-3 mb-3">
+                        <label for="validationDefault01">Parent dances (specify)</label>
+                        <input type="text" class="form-control" id="validationDefault01">
+                    </div>
+                     
+                     <!-- Name field -->
+                     <div class="col-3 mb-3">
+                        <label for="validationDefault01">Background music during dinner</label>
+                        <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+
+                    <!-- Name field -->
+                    <div class="col-3 mb-3">
+                        <label for="validationDefault01">1st song to kick off the party</label>
+                        <input type="text" class="form-control" id="validationDefault01">
+                    </div>
+                    <p class="text-center">*If you are hiring any musicians, please specify when they will be playing</p>
+                 </div>
                 <hr>
 
                 <!-- =========== BRIDAL TABLE FORM =========== -->
                 <div id="bridalForm">
                     <h3 class="text-center fancyFont mb-4">Bridal Party Table</h3>
+                    <p class="text-center">Please add your bridal party's details here</p>
+                
                     <!-- Form row template -->
                     <template class="bridalRowTemplate">
                         <div class="row">
+
                             <!-- Name field -->
-                            <div class="col-4 mb-3">
-                                <label for="validationDefault01">Guest</label>
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Bridesmaid</label>
                                 <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
                             </div>
                             <!-- Food choice field -->
-                            <div class="col-4 mb-3">
-                                <label for="validationDefault01">Meal Choice</label>
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Meal Selection</label>
                                 <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
-                                </div>
-                            <!-- Allergy field -->
-                            <div class="col-3 mb-3">
-                                <label for="validationDefault02">Food Allergies</label>
-                                <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'">
                             </div>
+
                             <!-- Remove row button -->
                             <div class="col-1 mb-3">
                                 <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
@@ -157,62 +197,67 @@
                     </template>
                 </div>
                 <!-- New row button -->
-                <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Guest</button>
+                <div class="d-flex justify-content-center">
+                    <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Maid of Honor</button>
+                    <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Bridesmaid</button>
+                   
+                    <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Best Man</button>
+                    <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Groomsman</button>
+                </div>
+                
 
                 <hr>
 
                 <!-- =========== GENERIC TABLE FORMS =========== -->
+                <h3 class="wwFont text-pink text-center">Guestlist</h3>
                 <div id="genericTableContainer">
                     <template class="tableTemplate">
                         <div class="tableForm">
-                            <h3 class="genericTableTitle text-center fancyFont">Table</h3>
                             <div class="row">
+                                <h3 class="genericTableTitle text-center fancyFont mt-4">Table</h3>
+                               
                                 <!-- Details field -->
-                                <div class="col-11 mb-3">
+                                <div class="col-10 mb-3">
                                     <label for="validationDefault01">Table Details</label>
-                                    <input type="text" class="form-control" id="validationDefault01" placeholder="ex: 'Immediate Family, Joanne Requires Assistance.'" required>
+                                    <input type="text" class="form-control" id="validationDefault01" placeholder="Example: Immediate Family, Joanne Requires Assistance, etc.">
                                 </div>
                             </div>
+
                             <div class="row guestRow">
                                 <!-- Name field -->
-                                <div class="col-4 mb-3">
+                                <div class="col-5 mb-3">
                                     <label for="validationDefault01">Guest</label>
                                     <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
                                 </div>
+
                                 <!-- Food choice field -->
-                                <div class="col-4 mb-3">
-                                    <label for="validationDefault01">Meal Choice</label>
+                                <div class="col-5 mb-3">
+                                    <label for="validationDefault01">Meal Selection</label>
                                     <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
-                                    </div>
-                                <!-- Allergy field -->
-                                <div class="col-3 mb-3">
-                                    <label for="validationDefault02">Food Allergies</label>
-                                    <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'">
                                 </div>
+                            
                                 <!-- Remove row button -->
                                 <div class="col-1 mb-3">
                                     <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                                 </div>
                             </div>
+
                             <!-- Form row template -->
                             <div class="genericTableRowContainer">
                                 <template class="tableRowTemplate">
                                     <div class="row guestRow">
                                         <!-- Name field -->
-                                        <div class="col-4 mb-3">
+                                        <div class="col-5 mb-3">
                                             <label for="validationDefault01">Guest</label>
                                             <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
                                         </div>
+
                                         <!-- Food choice field -->
-                                        <div class="col-4 mb-3">
-                                            <label for="validationDefault01">Meal Choice</label>
+                                        <div class="col-5 mb-3">
+                                            <label for="validationDefault01">Meal Selection</label>
                                             <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
-                                            </div>
-                                        <!-- Allergy field -->
-                                        <div class="col-3 mb-3">
-                                            <label for="validationDefault02">Food Allergies</label>
-                                            <input type="text" class="form-control" id="validationDefault02" placeholder="ex: 'Shellfish'">
                                         </div>
+                              
                                         <!-- Remove row button -->
                                         <div class="col-1 mb-3">
                                             <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
@@ -221,17 +266,26 @@
                                 </template>
                             </div>
                             <!-- New row button -->
-                            <button class="ww-button btn-form mb-3" onclick="addRow(this.parentElement); return false">+ Guest</button>
-                            <button class="ww-button btn-form mb-3" onclick="removeTable(this); return false">Delete Table</button>
+                            <div class="d-flex justify-content-center">
+                                <button class="ww-button btn-form mb-3" onclick="addRow(this.parentElement); return false">+ Guest</button>
+                                <button class="ww-button btn-form mb-3" onclick="removeTable(this); return false">Delete Table</button>
+                            </div>
+                           
                             <hr>
                         </div>
                     </template>
                 </div>
                 
             </div>
-            <button class="ww-button btn-form mb-5" onclick="addTable(); return false">+ Table</button>
-            <button class="ww-button mb-5" onClick="submitPDF()">Create PDF</button>
-            <button class="ww-button mb-5" type="submit" onClick="submitPDF()">Submit</button>
+            <div class="container d-flex justify-content-center">
+                <button class="ww-button btn-form mb-5" onclick="addTable(); return false">+ Table</button>
+                
+            </div>
+            <hr>
+            <div class="container">
+                <button class="ww-button mb-5" onClick="submitPDF()">Create PDF</button>
+                <button class="ww-button mb-5" type="submit" onClick="submitPDF()">Submit</button>
+            </div>
         </form>
     </div>
     
