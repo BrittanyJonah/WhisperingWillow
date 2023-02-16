@@ -53,13 +53,61 @@
     <div class="container pt-5 mt-5 d-flex justify-content-center" data-aos="fade-in">
         <!-- =========== WEDDING DETAILS FORM =========== -->
         <form name="guestlist" netlify >
-            <h3 class="fancyFont text-center mt-5">About you</h3>
-            <p class="text-center">Add your couple's details and select your meals here</p>
-            <!-- New row button -->
-            <div class="d-flex justify-content-center">
-                <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Bride</button>
-                <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Groom</button>
+            <div id="spouseForm">
+                <h3 class="fancyFont text-center mt-5">About you</h3>
+                <p class="text-center">Add your couple's details and select your meals here</p>
+
+                    <!-- Bride row template -->
+                    <template class="brideRowTemplate">
+                        <div class="row templatedRow">
+
+                            <!-- Name field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Bride</label>
+                                <input type="text" class="form-control" id="input-bride-name-1" placeholder="Full name" required>
+                            </div>
+                            <!-- Food choice field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Meal Selection</label>
+                                <input type="text" class="form-control" id="input-bride-meal-1" placeholder="Meal" required>
+                            </div>
+
+                            <!-- Remove row button -->
+                            <div class="col-1 mb-3">
+                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Groom row template -->
+                    <template class="groomRowTemplate">
+                        <div class="row templatedRow">
+
+                            <!-- Name field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Groom</label>
+                                <input type="text" class="form-control" id="input-groom-name-1" placeholder="Full name" required>
+                            </div>
+                            <!-- Food choice field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Meal Selection</label>
+                                <input type="text" class="form-control" id="input-groom-meal-1" placeholder="Meal" required>
+                            </div>
+
+                            <!-- Remove row button -->
+                            <div class="col-1 mb-3">
+                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                            </div>
+                        </div>
+                    </template>
+
+                <!-- New row button -->
+                <div class="d-flex justify-content-center">
+                    <button class="ww-button btn-form mb-3" onclick="addBrideRow(); return false">+ Bride</button>
+                    <button class="ww-button btn-form mb-3" onclick="addGroomRow(); return false">+ Groom</button>
+                </div>
             </div>
+
 
             <hr>
             <div class="row mt-5">
@@ -69,13 +117,19 @@
                 <!--wedding date-->
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault03">Wedding Date</label>
-                    <input type="date" class="form-control" id="WeddingDate" placeholder="Wedding Date" required>
+                    <input type="date" class="form-control" id="input-wedding-date" placeholder="Wedding Date" required>
                 </div>
 
                 <!-- Package -->
                 <div class="col-6 mb-3">
                     <label for="validationDefault02">Wedding Package</label>
-                    <input type="dropdown" class="form-control" id="Package">
+
+                    <select name="package" id="input-wedding-package" onchange="window.alert(this.value)">
+                      <option value="package1">Package #1</option>
+                      <option value="package2">Package #2</option>
+                      <option value="package3">Package #3</option>
+                      <option value="package4">Package #4</option>
+                    </select>
                 </div>
 
                 <!--Guest count-->
@@ -87,7 +141,7 @@
                  <!-- Allergy field -->
                  <div class="col-12 mb-3">
                     <label for="validationDefault02">Please Include All Guests Food Alergies</label>
-                    <input type="text" class="form-control" id="Allergies" placeholder="Example: Shellfish, Nuts, Avocado, etc.">
+                    <input type="text" class="form-control" id="input-allergies" placeholder="Example: Shellfish, Nuts, Avocado, etc.">
                 </div>
 
                  
@@ -101,68 +155,68 @@
                       <!-- Name field -->
                       <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">Playing while guests seat themselves</label>
-                        <input type="text" class="form-control" id="validationDefault01" required>
+                        <input type="text" class="form-control" id="input-song-seat" required>
                     </div>
 
                       <!-- Name field -->
                       <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">Wedding Party comes down the aisle </label>
-                        <input type="text" class="form-control" id="validationDefault01" required>
+                        <input type="text" class="form-control" id="input-song-party-aisle" required>
                     </div>
 
                       <!-- Name field -->
                       <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">Bride/Groom comes down the aisle</label>
-                        <input type="text" class="form-control" id="validationDefault01" required>
+                        <input type="text" class="form-control" id="input-song-couple-aisle" required>
                     </div>
 
                      <!-- Name field -->
                      <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">Signing of the documents</label>
-                        <input type="text" class="form-control" id="validationDefault01" required>
+                        <input type="text" class="form-control" id="input-song-document-signing" required>
                     </div>
 
                      <!-- Name field -->
                      <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">While Exiting Ceremony 
                         </label>
-                        <input type="text" class="form-control" id="validationDefault01" required>
+                        <input type="text" class="form-control" id="input-song-ceremony-exit" required>
                     </div>
 
                       <!-- Name field -->
                       <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">Background music during Cocktail Hour</label>
-                        <input type="text" class="form-control" id="validationDefault01" required>
+                        <input type="text" class="form-control" id="input-music-cocktail-hour" required>
                     </div>
 
                      <!-- Name field -->
                      <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">Grand Entrance as Mr & Mrs </label>
-                        <input type="text" class="form-control" id="validationDefault01">
+                        <input type="text" class="form-control" id="input-song-grand-entrance">
                     </div>
 
                      <!-- Name field -->
                      <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">1st Dance</label>
-                        <input type="text" class="form-control" id="validationDefault01" required>
+                        <input type="text" class="form-control" id="input-song-first-dance" required>
                     </div>
 
                     <!-- Name field -->
                     <div class="col-12 mb-3">
                         <label for="validationDefault01">Family dances (Example: Father/Daughter)</label>
-                        <input type="text" class="form-control" id="validationDefault01">
+                        <input type="text" class="form-control" id="input-song-family-dance">
                     </div>
                      
                      <!-- Name field -->
                      <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">Background music during dinner</label>
-                        <input type="text" class="form-control" id="validationDefault01" required>
+                        <input type="text" class="form-control" id="input-song-dinner" required>
                     </div>
 
                     <!-- Name field -->
                     <div class="col-sm-12 col-md-6 mb-3">
                         <label for="validationDefault01">1st song to kick off the party</label>
-                        <input type="text" class="form-control" id="validationDefault01">
+                        <input type="text" class="form-control" id="input-song-first-party">
                     </div>
                     <p class="text-center">*If you are hiring any musicians, please specify when they will be playing</p>
                  </div>
@@ -173,19 +227,85 @@
                     <h3 class="text-center fancyFont mb-4">Bridal Party Table</h3>
                     <p class="text-center">Please add your bridal party's details here</p>
                 
-                    <!-- Form row template -->
-                    <template class="bridalRowTemplate">
-                        <div class="row">
+                    <!-- Maid of Honor row template -->
+                    <template class="maidOfHonorRowTemplate">
+                        <div class="row templatedMaidOfHonorRow">
 
                             <!-- Name field -->
                             <div class="col-5 mb-3">
-                                <label for="validationDefault01">Bridesmaid</label>
-                                <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                                <label for="validationDefault01">Maid of Honor</label>
+                                <input type="text" class="form-control" id="input-maid-of-honor-name" placeholder="Full name" required>
                             </div>
                             <!-- Food choice field -->
                             <div class="col-5 mb-3">
                                 <label for="validationDefault01">Meal Selection</label>
-                                <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+                                <input type="text" class="form-control" id="input-maid-of-honor-meal" placeholder="Meal" required>
+                            </div>
+
+                            <!-- Remove row button -->
+                            <div class="col-1 mb-3">
+                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Best Man row template -->
+                    <template class="bestManRowTemplate">
+                        <div class="row templatedBestManRow">
+
+                            <!-- Name field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Best Man</label>
+                                <input type="text" class="form-control" id="input-best-man-name" placeholder="Full name" required>
+                            </div>
+                            <!-- Food choice field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Meal Selection</label>
+                                <input type="text" class="form-control" id="input-best-man-meal" placeholder="Meal" required>
+                            </div>
+
+                            <!-- Remove row button -->
+                            <div class="col-1 mb-3">
+                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Bridesmaid row template -->
+                    <template class="bridesmaidRowTemplate">
+                        <div class="row templatedBridesmaidRow">
+
+                            <!-- Name field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Bridesmaid</label>
+                                <input type="text" class="form-control" id="input-bridesmaid-name-1" placeholder="Full name" required>
+                            </div>
+                            <!-- Food choice field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Meal Selection</label>
+                                <input type="text" class="form-control" id="input-bridesmaid-meal-1" placeholder="Meal" required>
+                            </div>
+
+                            <!-- Remove row button -->
+                            <div class="col-1 mb-3">
+                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Groomsman row template -->
+                    <template class="groomsmanRowTemplate">
+                        <div class="row templatedGroomsmanRow">
+
+                            <!-- Name field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Groomsman</label>
+                                <input type="text" class="form-control" id="input-groomsman-name-1" placeholder="Full name" required>
+                            </div>
+                            <!-- Food choice field -->
+                            <div class="col-5 mb-3">
+                                <label for="validationDefault01">Meal Selection</label>
+                                <input type="text" class="form-control" id="input-groomsman-meal-1" placeholder="Meal" required>
                             </div>
 
                             <!-- Remove row button -->
@@ -195,30 +315,29 @@
                         </div>
                     </template>
                 </div>
+
                 <!-- New row button -->
                 <div class="d-flex justify-content-center">
-                    <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Maid of Honor</button>
-                    <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Bridesmaid</button>
-                   
-                    <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Best Man</button>
-                    <button class="ww-button btn-form mb-3" onclick="addBridalRow(); return false">+ Groomsman</button>
+                    <button class="ww-button btn-form mb-3" onclick="addMaidOfHonorRow(); return false">+ Maid of Honor</button>
+                    <button class="ww-button btn-form mb-3" onclick="addBestManRow(); return false">+ Best Man</button>
+                    <button class="ww-button btn-form mb-3" onclick="addBridesmaidRow(); return false">+ Bridesmaid</button>
+                    <button class="ww-button btn-form mb-3" onclick="addGroomsmanRow(); return false">+ Groomsman</button>
                 </div>
                 
-
                 <hr>
 
                 <!-- =========== GENERIC TABLE FORMS =========== -->
                 <h3 class="wwFont text-pink text-center">Guestlist</h3>
                 <div id="genericTableContainer">
                     <template class="tableTemplate">
-                        <div class="tableForm">
+                        <div id="generic-table-1" class="tableForm">
                             <div class="row">
                                 <h3 class="genericTableTitle text-center fancyFont mt-4">Table</h3>
                                
                                 <!-- Details field -->
                                 <div class="col-10 mb-3">
                                     <label for="validationDefault01">Table Details</label>
-                                    <input type="text" class="form-control" id="validationDefault01" placeholder="Example: Immediate Family, Joanne Requires Assistance, etc.">
+                                    <input type="text" class="form-control" id="input-table-details-1" placeholder="Example: Immediate Family, Joanne Requires Assistance, etc.">
                                 </div>
                             </div>
 
@@ -226,13 +345,13 @@
                                 <!-- Name field -->
                                 <div class="col-5 mb-3">
                                     <label for="validationDefault01">Guest</label>
-                                    <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                                    <input type="text" class="form-control" id="input-guest-name-1" placeholder="Full name" required>
                                 </div>
 
                                 <!-- Food choice field -->
                                 <div class="col-5 mb-3">
                                     <label for="validationDefault01">Meal Selection</label>
-                                    <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+                                    <input type="text" class="form-control" id="input-guest-meal-1" placeholder="Meal" required>
                                 </div>
                             
                                 <!-- Remove row button -->
@@ -248,13 +367,13 @@
                                         <!-- Name field -->
                                         <div class="col-5 mb-3">
                                             <label for="validationDefault01">Guest</label>
-                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Full name" required>
+                                            <input type="text" class="form-control" id="input-guest-name-2" placeholder="Full name" required>
                                         </div>
 
                                         <!-- Food choice field -->
                                         <div class="col-5 mb-3">
                                             <label for="validationDefault01">Meal Selection</label>
-                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Meal" required>
+                                            <input type="text" class="form-control" id="input-guest-meal-2" placeholder="Meal" required>
                                         </div>
                               
                                         <!-- Remove row button -->
@@ -264,10 +383,10 @@
                                     </div>
                                 </template>
                             </div>
-                            <!-- New row button -->
+                            <!-- Table buttons -->
                             <div class="d-flex justify-content-center">
-                                <button class="ww-button btn-form mb-3" onclick="addRow(this.parentElement); return false">+ Guest</button>
-                                <button class="ww-button btn-form mb-3" onclick="removeTable(this); return false">Delete Table</button>
+                                <button class="ww-button btn-form mb-3" onclick="addRow(this.parentElement.parentElement); return false">+ Guest</button>
+                                <button class="ww-button btn-form mb-3" onclick="removeTable(this.parentElement); return false">Delete Table</button>
                             </div>
                            
                             <hr>
@@ -284,6 +403,7 @@
             <div class="container">
                 <button class="ww-button mb-5" onClick="submitPDF()">Create PDF</button>
                 <button class="ww-button mb-5" type="submit" onClick="submitPDF()">Submit</button>
+                <button class="ww-button mb-5" onClick="gatherInputs()">INPUTS!</button>
             </div>
         </form>
     </div>

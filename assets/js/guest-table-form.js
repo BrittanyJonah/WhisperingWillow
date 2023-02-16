@@ -1,20 +1,122 @@
 let guestCount = 2;
 let tableIteration = 1;
 
+let inputList = document.querySelectorAll('[id^="input-"]');
+console.log({ ...localStorage });
+
+inputList.forEach(element => {
+
+    element.addEventListener("blur", function(event) {
+        localStorage.setItem(element.id, element.value);
+    });
+    document.getElementById(element.id).value = localStorage.getItem(element.id);
+});
+
+function callLocalStorage(){
+    let inputList = document.querySelectorAll('[id^="input-"]');
+    inputList.forEach(element => {
+        console.log(`${element.id} ${localStorage.getItem(element.id)}`);
+        document.getElementById(element.id).value = localStorage.getItem(element.id);
+    });
+
+}
+
 /**
- * Creates a new row using the template within #bridalForm
+ * 
+ * @param {HTMLElement} element The parent element for which to count rows within
+ * @param {string} classNames The named class(es) of the rows within the parent element ('.classOne, .classTwo')
  */
-function addBridalRow(){
-    let template = document.getElementsByClassName("bridalRowTemplate")[0];
+function getTotalRows(element, classNames){
+    rowCount = element.querySelectorAll(classNames);
+    return rowCount.length;
+}
+
+/**
+ * Creates a new row for the given row template and element selection 
+ * @param {string} rowTemplateClassName The name of the template 
+ * @param {HTMLElement} containerElement The parent element to append the new row to
+ */
+function createRowFromTemplate(rowTemplateClassName, containerElement){
+    let template = document.getElementsByClassName(rowTemplateClassName)[0];
     let copy = template.content.cloneNode(true);
-    let formSection = document.getElementById("bridalForm");
-    formSection.appendChild(copy);
+    containerElement.appendChild(copy);
     increaseGuestCount();
 }
 
 /**
- * Creates a new table within #genericTableContainer
+ * Creates a new row using the template within #spouseForm
  */
+function addBrideRow(){
+    let formSection = document.getElementById("spouseForm");
+    if (getTotalRows(formSection, '.templatedRow') < 2)
+    {
+        createRowFromTemplate("brideRowTemplate", formSection);
+        callLocalStorage();
+    }
+    else window.alert("Guest limit exceeded.");
+}
+
+/**
+ * Creates a new row using the template within #spouseForm
+ */
+function addGroomRow(){
+    let formSection = document.getElementById("spouseForm");
+    if (getTotalRows(formSection, '.templatedRow') < 2)
+    {
+        createRowFromTemplate("groomRowTemplate", formSection);
+        callLocalStorage();
+    }
+    else window.alert("Guest limit exceeded.");
+}
+
+/**
+ * Creates a new row using the template within #bridalForm
+ */
+function addMaidOfHonorRow(){
+    let formSection = document.getElementById("bridalForm");
+    if (getTotalRows(formSection, '.templatedMaidOfHonorRow') < 1)
+    {
+        createRowFromTemplate("maidOfHonorRowTemplate", formSection);
+    }
+    else window.alert("Guest limit exceeded.");
+}
+
+/**
+ * Creates a new row using the template within #bridalForm
+ */
+function addBridesmaidRow(){
+    let formSection = document.getElementById("bridalForm");
+    if (getTotalRows(formSection, '.templatedBridesmaidRow') < 6)
+    {
+        createRowFromTemplate("bridesmaidRowTemplate", formSection);
+    }
+    else window.alert("Guest limit exceeded.");
+}
+
+/**
+ * Creates a new row using the template within #bridalForm
+ */
+function addBestManRow(){
+    let formSection = document.getElementById("bridalForm");
+    if (getTotalRows(formSection, '.templatedBestManRow') < 1)
+    {
+        createRowFromTemplate("bestManRowTemplate", formSection);
+    }
+    else window.alert("Guest limit exceeded.");
+}
+
+/**
+ * Creates a new row using the template within #bridalForm
+ */
+function addGroomsmanRow(){
+    let formSection = document.getElementById("bridalForm");
+    if (getTotalRows(formSection, '.templatedGroomsmanRow') < 6)
+    {
+        createRowFromTemplate("groomsmanRowTemplate", formSection);
+    }
+    else window.alert("Guest limit exceeded.");
+}
+
 function addTable(){
     //Create new table from HTML template
     let table = document.getElementsByClassName("tableTemplate")[0];
@@ -65,6 +167,14 @@ function removeTable(element){
 
     tableForm.remove();
     tableIteration--;
+
+    //Rename remaining tables to retain consistency
+    let tableCount = 1;
+    let tables = document.querySelectorAll('.genericTableTitle');
+    tables.forEach(element => {
+        element.innerHTML = `Table ${tableCount}`;
+        tableCount++;
+    });
 }
 
 /**
