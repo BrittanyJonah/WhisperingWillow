@@ -209,11 +209,11 @@ function submitPDF(){
     // let pdfImage = "../img/logo-lg.jpg";
     // doc.addImage("../img/logo-lg.jpg", "JPEG", 0, 0, 200, 50);
 
-    let entries = document.getElementsByTagName("input");
+    let inputList = document.querySelectorAll('[id^="input-"]');
 
-    for (let index = 0; index < entries.length; index++) {
-        doc.text(entries[index].id.toString(), 10, index*10);
-        doc.text(entries[index].value.toString(), 100, index*10);
+    for (let index = 0; index < inputList.length; index++) {
+        doc.text(inputList[index].id.toString(), 10, index*10);
+        doc.text(inputList[index].value.toString(), 100, index*10);
     }
 
     doc.save("WW-SeatingPlan.pdf");
