@@ -1,24 +1,33 @@
-let guestCount = 2;
 let tableIteration = 1;
+let genericRowIteration = 0;
+let guestCount = 0;
 
-let inputList = document.querySelectorAll('[id^="input-"]');
+callLocalStorage();
 console.log({ ...localStorage });
 
-inputList.forEach(element => {
-
-    element.addEventListener("blur", function(event) {
-        localStorage.setItem(element.id, element.value);
-    });
-    document.getElementById(element.id).value = localStorage.getItem(element.id);
-});
-
+/**
+ * Queries the DOM for current input fields, assigns event listeners to set changes after losing focus
+ * and then retrives all values currently held in localStorage
+ */
 function callLocalStorage(){
-    let inputList = document.querySelectorAll('[id^="input-"]');
+    let inputList = getInputs(document);
+
     inputList.forEach(element => {
-        console.log(`${element.id} ${localStorage.getItem(element.id)}`);
+        element.addEventListener("blur", function(event) {
+            localStorage.setItem(element.id, element.value);
+        });
+
         document.getElementById(element.id).value = localStorage.getItem(element.id);
     });
+}
 
+/**
+ * scans the given element for all fields beginning with "input-"
+ * @param {HTMLElement} element The element to scan
+ * @returns The resulting NodeList
+ */
+function getInputs(element){
+    return element.querySelectorAll('[id^="input-"]');
 }
 
 /**
@@ -77,6 +86,7 @@ function addMaidOfHonorRow(){
     if (getTotalRows(formSection, '.templatedMaidOfHonorRow') < 1)
     {
         createRowFromTemplate("maidOfHonorRowTemplate", formSection);
+        callLocalStorage();
     }
     else window.alert("Guest limit exceeded.");
 }
@@ -89,6 +99,7 @@ function addBridesmaidRow(){
     if (getTotalRows(formSection, '.templatedBridesmaidRow') < 6)
     {
         createRowFromTemplate("bridesmaidRowTemplate", formSection);
+        callLocalStorage();
     }
     else window.alert("Guest limit exceeded.");
 }
@@ -101,6 +112,7 @@ function addBestManRow(){
     if (getTotalRows(formSection, '.templatedBestManRow') < 1)
     {
         createRowFromTemplate("bestManRowTemplate", formSection);
+        callLocalStorage();
     }
     else window.alert("Guest limit exceeded.");
 }
@@ -113,6 +125,7 @@ function addGroomsmanRow(){
     if (getTotalRows(formSection, '.templatedGroomsmanRow') < 6)
     {
         createRowFromTemplate("groomsmanRowTemplate", formSection);
+        callLocalStorage();
     }
     else window.alert("Guest limit exceeded.");
 }
@@ -121,6 +134,12 @@ function addTable(){
     //Create new table from HTML template
     let table = document.getElementsByClassName("tableTemplate")[0];
     let newTable = table.content.cloneNode(true);
+
+    //Adjust input IDs based on current table iteration
+    newTableInputs = getInputs(newTable);
+    newTableInputs.forEach(element => {
+        element.id = element.id.slice(0, -1) + tableIteration.toString();
+    });
 
     //Set table title dynamically 
     let newTableTitle = newTable.querySelector(".genericTableTitle");
@@ -131,6 +150,7 @@ function addTable(){
     let tableContainer = document.getElementById("genericTableContainer");
     tableContainer.appendChild(newTable);
     increaseGuestCount();
+    callLocalStorage();
 }
 
 /**
@@ -143,6 +163,7 @@ function addRow(tableForm){
     let rowContainer = tableForm.getElementsByClassName("genericTableRowContainer")[0];
     rowContainer.appendChild(newRow);
     increaseGuestCount();
+    callLocalStorage();
 }
 
 /**
@@ -152,6 +173,7 @@ function addRow(tableForm){
 function removeRow(element){
     element.parentElement.parentElement.remove();
     decreaseGuestCount();
+    callLocalStorage();
 }
 
 /**
@@ -163,18 +185,32 @@ function removeTable(element){
 
     //Count guests on table to be deleted
     let guestCount = tableForm.getElementsByClassName("guestRow").length;
-    decreaseGuestCount(guestCount);
+    decreaseGuestCount(guestCount);    
 
     tableForm.remove();
     tableIteration--;
 
     //Rename remaining tables to retain consistency
     let tableCount = 1;
-    let tables = document.querySelectorAll('.genericTableTitle');
-    tables.forEach(element => {
-        element.innerHTML = `Table ${tableCount}`;
+    let tablesTitles = document.querySelectorAll('.genericTableTitle');
+    tablesTitles.forEach(title => {
+        title.innerHTML = `Table ${tableCount}`;
         tableCount++;
     });
+
+    //Adjust input IDs based on current table iteration
+    tableCount = 1;
+    let tables = document.querySelectorAll('[id^="generic-table-"]');
+    tables.forEach(table => {
+        tableInputs = getInputs(table);
+        tableInputs.forEach(input => {
+            input.id = input.id.slice(0, -1) + tableCount.toString();
+        });
+        tableCount++;
+    });
+
+
+    callLocalStorage();
 }
 
 /**
@@ -209,11 +245,13 @@ function submitPDF(){
     // let pdfImage = "../img/logo-lg.jpg";
     // doc.addImage("../img/logo-lg.jpg", "JPEG", 0, 0, 200, 50);
 
-    let inputList = document.querySelectorAll('[id^="input-"]');
+    let inputList = getInputs(document);
 
+    verticleSpace = 10;
     for (let index = 0; index < inputList.length; index++) {
-        doc.text(inputList[index].id.toString(), 10, index*10);
-        doc.text(inputList[index].value.toString(), 100, index*10);
+        verticleSpace += 10;
+        doc.text(inputList[index].id.toString(), 10, verticleSpace);
+        doc.text(inputList[index].value.toString(), 100, verticleSpace);
     }
 
     doc.save("WW-SeatingPlan.pdf");
