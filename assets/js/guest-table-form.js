@@ -26,8 +26,8 @@ function callLocalStorage(){
  * @param {HTMLElement} element The element to scan
  * @returns The resulting NodeList
  */
-function getInputs(element){
-    return element.querySelectorAll('[id^="input-"]');
+function getInputs(element, searchString = '[id^="input-"]'){
+    return element.querySelectorAll(searchString);
 }
 
 /**
@@ -135,10 +135,16 @@ function addTable(){
     let table = document.getElementsByClassName("tableTemplate")[0];
     let newTable = table.content.cloneNode(true);
 
+    //Adjust table ID to match current iteration of tables
+    table = getInputs(newTable, '[id^="generic-table-"]')
+    table.forEach(table => {
+        table.id = table.id.slice(0, -1) + tableIteration.toString();
+    });
+
     //Adjust input IDs based on current table iteration
     newTableInputs = getInputs(newTable);
-    newTableInputs.forEach(element => {
-        element.id = element.id.slice(0, -1) + tableIteration.toString();
+    newTableInputs.forEach(input => {
+        input.id = input.id.slice(0, -1) + tableIteration.toString();
     });
 
     //Set table title dynamically 
@@ -155,13 +161,34 @@ function addTable(){
 
 /**
  * Creates new input field within generic table
- * @param {HTMLElement} tableForm 
+ * @param {HTMLElement} tableForm The container element 
  */
 function addRow(tableForm){
+    //Create new row from HTML template
     let row = tableForm.getElementsByClassName("tableRowTemplate")[0];
     let newRow = row.content.cloneNode(true);
     let rowContainer = tableForm.getElementsByClassName("genericTableRowContainer")[0];
     rowContainer.appendChild(newRow);
+
+    //substring(20, 21)
+
+    tableNumber = tableForm.id.slice(-1)
+    localStorage.setItem(element.id, element.value);
+
+    document.getElementById(element.id).value = localStorage.getItem(element.id);
+
+    console.log(tableNumber);
+    //Adjust input IDs based on current row iteration
+    let tableRows = getInputs(rowContainer);
+    tableRows.forEach(row => {
+        row.id = row.id.slice(0, -1) + tableNumber.toString();
+    });
+    tableNumber++;
+    //Create local storage object to track number of 
+    //rows within each table and then adjust inputs individually within each table?
+    //OR use additional number to specicy table number within the ID of each row
+
+    genericRowIteration++
     increaseGuestCount();
     callLocalStorage();
 }
@@ -171,6 +198,13 @@ function addRow(tableForm){
  * @param {HTMLElement} element 
  */
 function removeRow(element){
+    //Shift input IDs to account for lost row
+    let rowCount = 1;
+    let genericRows = getInputs(document, '[id^="input-generic-guest-"]');
+    genericRows.forEach(row => {
+        row.id = row.id.slice(0, -1) + rowCount.toString();
+    });
+
     element.parentElement.parentElement.remove();
     decreaseGuestCount();
     callLocalStorage();
