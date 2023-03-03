@@ -178,9 +178,15 @@ function addRow(tableForm){
         row.id = row.id.replace("table-1", `table-${tableNumber}`);
     })
 
+    let genericTableRowContainers = getInputs(rowContainer, '[id^="generic-table"]');
+    genericTableRowContainers.forEach(row => {
+        row.id = row.id.replace("table-1", `table-${tableNumber}`);
+    })
+
     //Sets local storage item to track the row number of the current table
     let tableRows = getInputs(rowContainer);
-    let tableRowCount = getInputs(rowContainer, '[id^="input-generic-table-"]').length;
+    console.log(tableRows);
+    let tableRowCount = getInputs(rowContainer, '[id^="generic-table-"]').length;
     localStorage.setItem(`Table${tableNumber}RowCount`, tableRowCount.toString());
     console.log(localStorage.getItem(`Table${tableNumber}RowCount`));
 
@@ -191,7 +197,7 @@ function addRow(tableForm){
         row.id = row.id.slice(0, -1) + rowId.toString();
         iteration++;
         //Increase ID count every 3 iterations
-        if (iteration % 3 === 0){
+        if (iteration % 2 === 0){
             rowId++;
         }
     });
@@ -252,7 +258,6 @@ function removeTable(element){
         tableCount++;
     });
 
-
     callLocalStorage();
 }
 
@@ -293,8 +298,21 @@ function submitPDF(){
     verticleSpace = 10;
     for (let index = 0; index < inputList.length; index++) {
         verticleSpace += 10;
-        doc.text(inputList[index].id.toString(), 10, verticleSpace);
+
+        //Remove hyphens, "input", and capitalize first letter for displayer of inputs
+        let formattedDescription = inputList[index].id.replaceAll('-', ' ').toString();
+        formattedDescription = formattedDescription.replace('input ', '');
+        formattedDescription = formattedDescription.replace('generic ', '');
+        formattedDescription = formattedDescription.charAt(0).toUpperCase() + formattedDescription.slice(1);
+
+        console.log(inputList[index]);
+        doc.text(formattedDescription, 10, verticleSpace);
         doc.text(inputList[index].value.toString(), 100, verticleSpace);
+
+        if (index % 26 === 0 && index !== 0){
+            doc.addPage();
+            verticleSpace = 10;
+        }
     }
 
     doc.save("WW-SeatingPlan.pdf");
