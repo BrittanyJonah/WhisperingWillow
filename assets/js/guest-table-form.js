@@ -22,7 +22,7 @@ function callLocalStorage(){
 }
 
 /**
- * scans the given element for all fields beginning with "input-"
+ * scans the given element for all fields beginning with ID "input-"
  * @param {HTMLElement} element The element to scan
  * @returns The resulting NodeList
  */
@@ -171,22 +171,31 @@ function addRow(tableForm){
     rowContainer.appendChild(newRow);
 
     //substring(20, 21)
+    //Adjust table number for generic rows
+    let tableNumber = tableForm.id.slice(-1)
+    let genericTableRows = getInputs(rowContainer, '[id^="input-generic-"]');
+    genericTableRows.forEach(row => {
+        row.id = row.id.replace("table-1", `table-${tableNumber}`);
+    })
 
-    tableNumber = tableForm.id.slice(-1)
-    localStorage.setItem(element.id, element.value);
-
-    document.getElementById(element.id).value = localStorage.getItem(element.id);
-
-    console.log(tableNumber);
-    //Adjust input IDs based on current row iteration
+    //Sets local storage item to track the row number of the current table
     let tableRows = getInputs(rowContainer);
+    let tableRowCount = getInputs(rowContainer, '[id^="input-generic-table-"]').length;
+    localStorage.setItem(`Table${tableNumber}RowCount`, tableRowCount.toString());
+    console.log(localStorage.getItem(`Table${tableNumber}RowCount`));
+
+    //Adjust input IDs based on current row iteration
+    let iteration = 0;
+    let rowId = 1;
     tableRows.forEach(row => {
-        row.id = row.id.slice(0, -1) + tableNumber.toString();
+        row.id = row.id.slice(0, -1) + rowId.toString();
+        iteration++;
+        //Increase ID count every 3 iterations
+        if (iteration % 3 === 0){
+            rowId++;
+        }
     });
     tableNumber++;
-    //Create local storage object to track number of 
-    //rows within each table and then adjust inputs individually within each table?
-    //OR use additional number to specicy table number within the ID of each row
 
     genericRowIteration++
     increaseGuestCount();
