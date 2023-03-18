@@ -53,7 +53,7 @@
     <div class="container pt-5 mt-5 d-flex justify-content-center" data-aos="fade-in">
         <!-- =========== WEDDING DETAILS FORM =========== -->
         <form name="guestlist" netlify >
-            <div id="spouseForm">
+            <div id="spouseForm" class="spouseInputContainer">
                 <h3 class="fancyFont text-center mt-5">About you</h3>
                 <p class="text-center">Add your couple's details and select your meals here</p>
 
@@ -110,7 +110,7 @@
 
 
             <hr>
-            <div class="row mt-5">
+            <div class="row mt-5 detailsInputContainer">
                 <h3 class="fancyFont text-center">Wedding Details</h3>
                 <p class="text-center">Tell us all about your special day</p>
 
@@ -124,11 +124,10 @@
                 <div class="col-6 mb-3">
                     <label for="validationDefault02">Wedding Package</label>
 
-                    <select name="package" class="form-control" id="input-wedding-package" onchange="window.alert(this.value)">
-                      <option value="package1">Package #1</option>
-                      <option value="package2">Package #2</option>
-                      <option value="package3">Package #3</option>
-                      <option value="package4">Package #4</option>
+                    <select name="package" class="form-control" id="input-wedding-package">
+                      <option value="Sunset Ceremony">Sunset Ceremony</option>
+                      <option value="Balmroom Barn Soirée">Balmroom Barn Soirée</option>
+                      <option value="Elite Wedding Experience">Elite Wedding Experience</option>
                     </select>
                 </div>
 
@@ -147,8 +146,8 @@
                  
              </div>
             <hr>
-
-                <div class="row mt-5">
+                <!-- Music -->
+                <div class="row mt-5 musicInputContainer">
                     <h3 class="fancyFont text-center">Music Selections</h3>
                     <p class="text-center">Please add the songs (including artists) that you would like our DJ to play for you </p>
                    
@@ -223,7 +222,7 @@
                 <hr>
 
                 <!-- =========== BRIDAL TABLE FORM =========== -->
-                <div id="bridalForm">
+                <div id="bridalForm" class="bridalInputContainer">
                     <h3 class="text-center fancyFont mb-4">Bridal Party Table</h3>
                     <p class="text-center">Please add your bridal party's details here</p>
                 
@@ -328,7 +327,7 @@
 
                 <!-- =========== GENERIC TABLE FORMS =========== -->
                 <h3 class="wwFont text-pink text-center">Guestlist</h3>
-                <div id="genericTableContainer">
+                <div id="genericTableContainer" class="genericInputContainer">
                     <template class="tableTemplate">
                         <div id="generic-table-1" class="tableForm">
                             <div class="row">
@@ -401,8 +400,9 @@
             </div>
             <hr>
             <div class="container">
-                <button class="ww-button mb-5" onClick="submitPDF()">Create PDF</button>
-                <button class="ww-button mb-5" type="submit" onClick="submitPDF()">Submit</button>
+                <button class="ww-button mb-5" onclick="submitPDF(); return false">Create PDF</button>
+                <button class="ww-button mb-5" onclick="clearLocalStorage(); return false">Reset</button>
+                <!-- <button class="ww-button mb-5" type="submit" onClick="submitPDF()">Submit</button> -->
             </div>
         </form>
     </div>

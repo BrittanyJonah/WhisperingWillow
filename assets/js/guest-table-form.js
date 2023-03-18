@@ -1,9 +1,10 @@
+let packageNames = ["Sunset Ceremony", "Balmroom Barn Soirée", "Elite Wedding Experience"];
+
 let tableIteration = 1;
 let genericRowIteration = 0;
 let guestCount = 0;
 
 callLocalStorage();
-console.log({ ...localStorage });
 
 /**
  * Queries the DOM for current input fields, assigns event listeners to set changes after losing focus
@@ -19,6 +20,21 @@ function callLocalStorage(){
 
         document.getElementById(element.id).value = localStorage.getItem(element.id);
     });
+}
+
+/**
+ * Propts the user to clear all input fields and remove local storage items
+ */
+function clearLocalStorage(){
+    let confirmText = "Clear saved data?\n\nWARNING! This action cannot be undone.";
+    if (confirm(confirmText) == true) {
+        localStorage.clear();
+
+        let inputElements = document.getElementsByTagName("input");
+        for(i = 0; i < inputElements.length; i++){
+            inputElements[i].value = "";
+        }
+    }
 }
 
 /**
@@ -83,7 +99,7 @@ function addGroomRow(){
  */
 function addMaidOfHonorRow(){
     let formSection = document.getElementById("bridalForm");
-    if (getTotalRows(formSection, '.templatedMaidOfHonorRow') < 1)
+    if (getTotalRows(formSection, '.templatedMaidOfHonorRow') < 2)
     {
         createRowFromTemplate("maidOfHonorRowTemplate", formSection);
         callLocalStorage();
@@ -96,7 +112,7 @@ function addMaidOfHonorRow(){
  */
 function addBridesmaidRow(){
     let formSection = document.getElementById("bridalForm");
-    if (getTotalRows(formSection, '.templatedBridesmaidRow') < 6)
+    if (getTotalRows(formSection, '.templatedBridesmaidRow') < 10)
     {
         createRowFromTemplate("bridesmaidRowTemplate", formSection);
         callLocalStorage();
@@ -109,7 +125,7 @@ function addBridesmaidRow(){
  */
 function addBestManRow(){
     let formSection = document.getElementById("bridalForm");
-    if (getTotalRows(formSection, '.templatedBestManRow') < 1)
+    if (getTotalRows(formSection, '.templatedBestManRow') < 2)
     {
         createRowFromTemplate("bestManRowTemplate", formSection);
         callLocalStorage();
@@ -122,7 +138,7 @@ function addBestManRow(){
  */
 function addGroomsmanRow(){
     let formSection = document.getElementById("bridalForm");
-    if (getTotalRows(formSection, '.templatedGroomsmanRow') < 6)
+    if (getTotalRows(formSection, '.templatedGroomsmanRow') < 10)
     {
         createRowFromTemplate("groomsmanRowTemplate", formSection);
         callLocalStorage();
@@ -185,10 +201,8 @@ function addRow(tableForm){
 
     //Sets local storage item to track the row number of the current table
     let tableRows = getInputs(rowContainer);
-    console.log(tableRows);
     let tableRowCount = getInputs(rowContainer, '[id^="generic-table-"]').length;
     localStorage.setItem(`Table${tableNumber}RowCount`, tableRowCount.toString());
-    console.log(localStorage.getItem(`Table${tableNumber}RowCount`));
 
     //Adjust input IDs based on current row iteration
     let iteration = 0;
@@ -287,33 +301,113 @@ function decreaseGuestCount(rowCount = 1){
  * Creates a new PDF file using the given input
  */
 function submitPDF(){
-    const doc = new jsPDF();
 
-    // Image not working
-    // let pdfImage = "../img/logo-lg.jpg";
-    // doc.addImage("../img/logo-lg.jpg", "JPEG", 0, 0, 200, 50);
+    let confirmText = "Create PDF document now?\n\nPlease ensure you have filled all appropriate fields before proceeding.";
+    if (confirm(confirmText) == true) {
+        const doc = new jsPDF();
+    
+        //Gather inputs for different forms
+        let spouseInputList = getInputs(document.getElementsByClassName('spouseInputContainer')[0]);
+        let detialsInputList = getInputs(document.getElementsByClassName('detailsInputContainer')[0]);
+        let musicInputList = getInputs(document.getElementsByClassName('musicInputContainer')[0]);
+        let bridalInputList = getInputs(document.getElementsByClassName('bridalInputContainer')[0]);
+        let genericInputList = []; 
 
-    let inputList = getInputs(document);
+        //Gathers inputs for all generic tables and append to genericInputList
+        let genericInputContainers = document.getElementsByClassName('genericInputContainer');
+        for (let i = 0; i < genericInputContainers.length; i++) {
+            let inputsToAppend = getInputs(genericInputContainers[i]);
+            inputsToAppend.forEach(input => {
+                genericInputList.push(input);
+            });
+        }
 
-    verticleSpace = 10;
+        //Set initial y coordinate
+        verticleSpace = 20;
+
+        //Formulate the PDF document using the inputs gathered
+        if (spouseInputList.length > 0 ){
+            addPdfSection(spouseInputList, doc, "Spouse Information");
+        }
+
+        if (detialsInputList.length > 0 ){
+            verticleSpace += 35;
+            addPdfSection(detialsInputList, doc, "Wedding Details");
+        }
+
+        if (musicInputList.length > 0 ){
+            verticleSpace += 35;
+            addPdfSection(musicInputList, doc, "Music Selection");
+            doc.addPage();
+            verticleSpace = 20;
+        }
+
+        if (bridalInputList.length > 0 ){
+            addPdfSection(bridalInputList, doc, "Bridal Information");
+            doc.addPage();
+            verticleSpace = 20;
+        }
+
+        if (genericInputList.length > 0 ){
+            addPdfSection(genericInputList, doc, "Guest Table Information");
+        }
+
+        //Save the finished document
+        doc.save("WW-SeatingPlan.pdf");
+    } 
+}
+
+/**
+ * Parses the given input list of elements to be displayed within the PDF doc
+ * @param {NodeListOf<Element>} inputList 
+ * @param {jsPDF} pdfDoc 
+ * @param {string} title 
+ */
+function addPdfSection(inputList, pdfDoc, title=""){
+
+    //Set title
+    pdfDoc.setFontSize(24);
+    pdfDoc.text(title, pdfDoc.internal.pageSize.width/2, verticleSpace, 'center');
+    pdfDoc.line(10, verticleSpace+3, pdfDoc.internal.pageSize.width - 10, verticleSpace+3)
+    verticleSpace += 10;
+    pdfDoc.setFontSize(11);
+
+
+    //Loop through given inputList to display its fields
     for (let index = 0; index < inputList.length; index++) {
-        verticleSpace += 10;
-
-        //Remove hyphens, "input", and capitalize first letter for displayer of inputs
+        //Remove hyphens, "input", and capitalize first letter for displaying of inputs
         let formattedDescription = inputList[index].id.replaceAll('-', ' ').toString();
         formattedDescription = formattedDescription.replace('input ', '');
         formattedDescription = formattedDescription.replace('generic ', '');
         formattedDescription = formattedDescription.charAt(0).toUpperCase() + formattedDescription.slice(1);
-
-        console.log(inputList[index]);
-        doc.text(formattedDescription, 10, verticleSpace);
-        doc.text(inputList[index].value.toString(), 100, verticleSpace);
-
-        if (index % 26 === 0 && index !== 0){
-            doc.addPage();
-            verticleSpace = 10;
+        //Remove number at end if present
+        let lastChar = formattedDescription.slice(-1)
+        if (!isNaN(lastChar)){
+            formattedDescription = formattedDescription.slice(0, -1);
         }
-    }
 
-    doc.save("WW-SeatingPlan.pdf");
+        //Sets the font to bold and adds line to mark each new generic table
+        if (formattedDescription.includes("Table details")){
+            pdfDoc.setFontType("bold");
+            pdfDoc.line(10, verticleSpace+3, pdfDoc.internal.pageSize.width - 40, verticleSpace+3)
+        }
+        //Display guest meals on the same line as guest names
+        if (formattedDescription.includes("meal")){
+            pdfDoc.text(formattedDescription, 110, verticleSpace - 10);
+            pdfDoc.text(inputList[index].value.toString(), 150, verticleSpace - 10);
+        }
+        else {
+            pdfDoc.text(formattedDescription, 10, verticleSpace);
+            pdfDoc.text(inputList[index].value.toString(), 55, verticleSpace);
+            verticleSpace += 10;
+        }
+        pdfDoc.setFontType("normal");
+
+        //New page when too many inputs to fit (disabled when next item is a meal)
+        if (verticleSpace > 280 && !inputList[index+1].id.includes("meal")){
+            pdfDoc.addPage();
+            verticleSpace = 20;
+        }
+    }    
+    
 }
