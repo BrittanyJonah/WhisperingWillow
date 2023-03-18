@@ -310,6 +310,7 @@ function submitPDF(){
         let spouseInputList = getInputs(document.getElementsByClassName('spouseInputContainer')[0]);
         let detialsInputList = getInputs(document.getElementsByClassName('detailsInputContainer')[0]);
         let musicInputList = getInputs(document.getElementsByClassName('musicInputContainer')[0]);
+        let vendorInputList = getInputs(document.getElementsByClassName('vendorsInputContainer')[0]);
         let bridalInputList = getInputs(document.getElementsByClassName('bridalInputContainer')[0]);
         let genericInputList = []; 
 
@@ -338,6 +339,12 @@ function submitPDF(){
         if (musicInputList.length > 0 ){
             verticleSpace += 35;
             addPdfSection(musicInputList, doc, "Music Selection");
+            doc.addPage();
+            verticleSpace = 20;
+        }
+
+        if (vendorInputList.length > 0 ){
+            addPdfSection(vendorInputList, doc, "Vendor's List");
             doc.addPage();
             verticleSpace = 20;
         }
@@ -379,6 +386,7 @@ function addPdfSection(inputList, pdfDoc, title=""){
         let formattedDescription = inputList[index].id.replaceAll('-', ' ').toString();
         formattedDescription = formattedDescription.replace('input ', '');
         formattedDescription = formattedDescription.replace('generic ', '');
+        formattedDescription = formattedDescription.replace('vendor ', '');
         formattedDescription = formattedDescription.charAt(0).toUpperCase() + formattedDescription.slice(1);
         //Remove number at end if present
         let lastChar = formattedDescription.slice(-1)
@@ -392,7 +400,7 @@ function addPdfSection(inputList, pdfDoc, title=""){
             pdfDoc.line(10, verticleSpace+3, pdfDoc.internal.pageSize.width - 40, verticleSpace+3)
         }
         //Display guest meals on the same line as guest names
-        if (formattedDescription.includes("meal")){
+        if (formattedDescription.includes("meal") || formattedDescription.includes("vendor")){
             pdfDoc.text(formattedDescription, 110, verticleSpace - 10);
             pdfDoc.text(inputList[index].value.toString(), 150, verticleSpace - 10);
         }
