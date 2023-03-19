@@ -387,6 +387,7 @@ function addPdfSection(inputList, pdfDoc, title=""){
         formattedDescription = formattedDescription.replace('input ', '');
         formattedDescription = formattedDescription.replace('generic ', '');
         formattedDescription = formattedDescription.replace('vendor ', '');
+        formattedDescription = formattedDescription.replace('vendor ', '');
         formattedDescription = formattedDescription.charAt(0).toUpperCase() + formattedDescription.slice(1);
         //Remove number at end if present
         let lastChar = formattedDescription.slice(-1)
