@@ -405,6 +405,11 @@ function addPdfSection(inputList, pdfDoc, title=""){
             pdfDoc.text(formattedDescription, 110, verticleSpace - 10);
             pdfDoc.text(inputList[index].value.toString(), 150, verticleSpace - 10);
         }
+        //Display guest meals on the same line as guest names
+        else if (formattedDescription.includes("email") || formattedDescription.includes("vendor")){
+            pdfDoc.text(formattedDescription, 110, verticleSpace - 10);
+            pdfDoc.text(inputList[index].value.toString(), 150, verticleSpace - 10);
+        }
         else {
             pdfDoc.text(formattedDescription, 10, verticleSpace);
             pdfDoc.text(inputList[index].value.toString(), 55, verticleSpace);
