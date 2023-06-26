@@ -52,7 +52,7 @@ function getInputs(element, searchString = '[id^="input-"]'){
  * @param {string} classNames The named class(es) of the rows within the parent element ('.classOne, .classTwo')
  */
 function getTotalRows(element, classNames){
-    rowCount = element.querySelectorAll(classNames);
+    let rowCount = element.querySelectorAll(classNames);
     return rowCount.length;
 }
 
@@ -69,16 +69,42 @@ function createRowFromTemplate(rowTemplateClassName, containerElement){
 }
 
 /**
+ * Iterates over the given input list updating the row number
+ * @param {*} inputList List of inputs to update
+ * @param {*} slicePosition When split using '-', index in the array to update ("input-example-1" would be value 2)
+ * @param {*} newRowInputCount How many inputs before generating new row (default 2) 
+ */
+function generateRowNumbers(inputList, slicePosition, newRowInputCount = 2){
+    let iteration = 0;
+    let rowId = 1;
+    inputList.forEach(row => {
+        let trailingNumber = row.id.split('-')[slicePosition]
+        let sliceIndex = trailingNumber.toString().length;
+        row.id = row.id.slice(0, -sliceIndex) + rowId.toString();
+        iteration++;
+        //Increase ID count every 3 iterations
+        if (iteration % newRowInputCount === 0){
+            rowId++;
+        }
+    });
+}
+
+/**
  * Creates a new row using the template within #spouseForm
  */
 function addBrideRow(){
     let formSection = document.getElementById("spouseForm");
-    if (getTotalRows(formSection, '.templatedRow') < 2)
+    if (formSection && getTotalRows(formSection, '.templatedRow') < 2)
     {
         createRowFromTemplate("brideRowTemplate", formSection);
+
+        //Adjust input IDs based on current row iteration
+        let bridalRows = getInputs(formSection, '[id^="input-bride-"]');
+        generateRowNumbers(bridalRows, 3); //"input-bride-meal-1"
+
         callLocalStorage();
     }
-    else window.alert("Guest limit exceeded.");
+    else window.alert("Spouse limit exceeded.");
 }
 
 /**
@@ -86,12 +112,17 @@ function addBrideRow(){
  */
 function addGroomRow(){
     let formSection = document.getElementById("spouseForm");
-    if (getTotalRows(formSection, '.templatedRow') < 2)
+    if (formSection && getTotalRows(formSection, '.templatedRow') < 2)
     {
         createRowFromTemplate("groomRowTemplate", formSection);
+        
+        //Adjust input IDs based on current row iteration
+        let bridalRows = getInputs(formSection, '[id^="input-groom-"]');
+        generateRowNumbers(bridalRows, 3); //"input-groom-meal-1"
+        
         callLocalStorage();
     }
-    else window.alert("Guest limit exceeded.");
+    else window.alert("Spouse limit exceeded.");
 }
 
 /**
@@ -99,25 +130,12 @@ function addGroomRow(){
  */
 function addMaidOfHonorRow(){
     let formSection = document.getElementById("bridalForm");
-    if (getTotalRows(formSection, '.templatedMaidOfHonorRow') < 2)
+    if (formSection && getTotalRows(formSection, '.templatedMaidOfHonorRow') < 1)
     {
         createRowFromTemplate("maidOfHonorRowTemplate", formSection);
         callLocalStorage();
     }
-    else window.alert("Guest limit exceeded.");
-}
-
-/**
- * Creates a new row using the template within #bridalForm
- */
-function addBridesmaidRow(){
-    let formSection = document.getElementById("bridalForm");
-    if (getTotalRows(formSection, '.templatedBridesmaidRow') < 10)
-    {
-        createRowFromTemplate("bridesmaidRowTemplate", formSection);
-        callLocalStorage();
-    }
-    else window.alert("Guest limit exceeded.");
+    else window.alert("Maid of Honour limit exceeded.");
 }
 
 /**
@@ -125,12 +143,30 @@ function addBridesmaidRow(){
  */
 function addBestManRow(){
     let formSection = document.getElementById("bridalForm");
-    if (getTotalRows(formSection, '.templatedBestManRow') < 2)
+    if (formSection && getTotalRows(formSection, '.templatedBestManRow') < 1)
     {
         createRowFromTemplate("bestManRowTemplate", formSection);
         callLocalStorage();
     }
-    else window.alert("Guest limit exceeded.");
+    else window.alert("Best Man limit exceeded.");
+}
+
+/**
+ * Creates a new row using the template within #bridalForm
+ */
+function addBridesmaidRow(){
+    let formSection = document.getElementById("bridalForm");
+    if (formSection && getTotalRows(formSection, '.templatedBridesmaidRow') < 10)
+    {
+        createRowFromTemplate("bridesmaidRowTemplate", formSection);
+
+        //Adjust input IDs based on current row iteration
+        let bridesmaidRows = getInputs(formSection, '[id^="input-bridesmaid-"]');
+        generateRowNumbers(bridesmaidRows, 3); //"input-bridesmaid-meal-1"
+
+        callLocalStorage();
+    }
+    else window.alert("Bridesmaid limit exceeded.");
 }
 
 /**
@@ -138,12 +174,17 @@ function addBestManRow(){
  */
 function addGroomsmanRow(){
     let formSection = document.getElementById("bridalForm");
-    if (getTotalRows(formSection, '.templatedGroomsmanRow') < 10)
+    if (formSection && getTotalRows(formSection, '.templatedGroomsmanRow') < 10)
     {
         createRowFromTemplate("groomsmanRowTemplate", formSection);
+
+        //Adjust input IDs based on current row iteration
+        let groomsmanRows = getInputs(formSection, '[id^="input-groomsman-"]');
+        generateRowNumbers(groomsmanRows, 3); //"input-groomsman-meal-1"
+
         callLocalStorage();
     }
-    else window.alert("Guest limit exceeded.");
+    else window.alert("Groomsman limit exceeded.");
 }
 
 function addTable(){
@@ -152,7 +193,7 @@ function addTable(){
     let newTable = table.content.cloneNode(true);
 
     //Adjust table ID to match current iteration of tables
-    table = getInputs(newTable, '[id^="generic-table-"]')
+    table = getInputs(newTable, '[id^="generic-table-"]');
     table.forEach(table => {
         table.id = table.id.slice(0, -1) + tableIteration.toString();
     });
@@ -184,19 +225,18 @@ function addRow(tableForm){
     let row = tableForm.getElementsByClassName("tableRowTemplate")[0];
     let newRow = row.content.cloneNode(true);
     let rowContainer = tableForm.getElementsByClassName("genericTableRowContainer")[0];
-    rowContainer.appendChild(newRow);
+    rowContainer.appendChild(newRow); 
 
-    //substring(20, 21)
     //Adjust table number for generic rows
-    let tableNumber = tableForm.id.slice(-1)
+    let tableNumber = +tableForm.id.match(/[0-9]+/)[0];
     let genericTableRows = getInputs(rowContainer, '[id^="input-generic-"]');
     genericTableRows.forEach(row => {
-        row.id = row.id.replace("table-1", `table-${tableNumber}`);
+        row.id = row.id.replace(/[0-9]+/, tableNumber);
     })
 
     let genericTableRowContainers = getInputs(rowContainer, '[id^="generic-table"]');
     genericTableRowContainers.forEach(row => {
-        row.id = row.id.replace("table-1", `table-${tableNumber}`);
+        row.id = row.id.replace(/[0-9]+/, tableNumber);
     })
 
     //Sets local storage item to track the row number of the current table
@@ -208,15 +248,25 @@ function addRow(tableForm){
     let iteration = 0;
     let rowId = 1;
     tableRows.forEach(row => {
-        row.id = row.id.slice(0, -1) + rowId.toString();
+        let trailingNumber = row.id.split('-')[6];
+        let sliceIndex = trailingNumber.toString().length;
+        row.id = row.id.slice(0, -sliceIndex) + rowId.toString();
         iteration++;
         //Increase ID count every 3 iterations
         if (iteration % 2 === 0){
             rowId++;
         }
     });
-    tableNumber++;
+    //Adjust row container IDs based on current row iteration
+    rowId = 1;
+    genericTableRowContainers.forEach(row => {
+        let trailingNumber = row.id.split('-')[4];
+        let sliceIndex = trailingNumber.toString().length;
+        row.id = row.id.slice(0, -sliceIndex) + rowId.toString();
+        rowId++;
+    });
 
+    tableNumber++;
     genericRowIteration++
     increaseGuestCount();
     callLocalStorage();

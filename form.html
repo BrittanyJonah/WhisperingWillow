@@ -103,8 +103,8 @@
 
                 <!-- New row button -->
                 <div class="d-flex justify-content-center">
-                    <button class="ww-button btn-form mb-3" onclick="addBrideRow(); return false">+ Bride</button>
-                    <button class="ww-button btn-form mb-3" onclick="addGroomRow(); return false">+ Groom</button>
+                    <button type="button" class="ww-button btn-form mb-3" onclick="addBrideRow(); return false">+ Bride</button>
+                    <button type="button" class="ww-button btn-form mb-3" onclick="addGroomRow(); return false">+ Groom</button>
                 </div>
             </div>
 
@@ -333,7 +333,7 @@
 
                             <!-- Remove row button -->
                             <div class="col-1 mb-3">
-                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                <button type="button" class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                             </div>
                         </div>
                     </template>
@@ -355,7 +355,7 @@
 
                             <!-- Remove row button -->
                             <div class="col-1 mb-3">
-                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                <button type="button" class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                             </div>
                         </div>
                     </template>
@@ -377,7 +377,7 @@
 
                             <!-- Remove row button -->
                             <div class="col-1 mb-3">
-                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                <button type="button" class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                             </div>
                         </div>
                     </template>
@@ -399,7 +399,7 @@
 
                             <!-- Remove row button -->
                             <div class="col-1 mb-3">
-                                <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                <button type="button" class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                             </div>
                         </div>
                     </template>
@@ -407,10 +407,10 @@
 
                 <!-- New row button -->
                 <div class="d-flex justify-content-center">
-                    <button class="ww-button btn-form mb-3" onclick="addMaidOfHonorRow(); return false">+ Maid of Honor</button>
-                    <button class="ww-button btn-form mb-3" onclick="addBestManRow(); return false">+ Best Man</button>
-                    <button class="ww-button btn-form mb-3" onclick="addBridesmaidRow(); return false">+ Bridesmaid</button>
-                    <button class="ww-button btn-form mb-3" onclick="addGroomsmanRow(); return false">+ Groomsman</button>
+                    <button type="button" class="ww-button btn-form mb-3" onclick="addMaidOfHonorRow(); return false">+ Maid of Honor</button>
+                    <button type="button" class="ww-button btn-form mb-3" onclick="addBestManRow(); return false">+ Best Man</button>
+                    <button type="button" class="ww-button btn-form mb-3" onclick="addBridesmaidRow(); return false">+ Bridesmaid</button>
+                    <button type="button" class="ww-button btn-form mb-3" onclick="addGroomsmanRow(); return false">+ Groomsman</button>
                 </div>
                 
                 <hr>
@@ -445,7 +445,7 @@
                             
                                 <!-- Remove row button -->
                                 <div class="col-1 mb-3">
-                                    <button class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
+                                    <button type="button" class="btn btn-danger btn-form mt-4" hidden="true" disabled="true" onclick="removeRow(this); return false">X</button>
                                 </div>
                             </div>
 
@@ -467,15 +467,15 @@
                               
                                         <!-- Remove row button -->
                                         <div class="col-1 mb-3">
-                                            <button class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
+                                            <button type="button" class="btn btn-danger btn-form mt-4" onclick="removeRow(this); return false">X</button>
                                         </div>
                                     </div>
                                 </template>
                             </div>
                             <!-- Table buttons -->
                             <div class="d-flex justify-content-center">
-                                <button class="ww-button btn-form mb-3" onclick="addRow(this.parentElement.parentElement); return false">+ Guest</button>
-                                <button class="ww-button btn-form mb-3" onclick="removeTable(this.parentElement); return false">Delete Table</button>
+                                <button type="button" class="ww-button btn-form mb-3" onclick="addRow(this.parentElement.parentElement); return false">+ Guest</button>
+                                <button type="button" class="ww-button btn-form mb-3" onclick="removeTable(this.parentElement); return false">Delete Table</button>
                             </div>
                            
                             <hr>
@@ -485,13 +485,13 @@
                 
             </div>
             <div class="container d-flex justify-content-center">
-                <button class="ww-button btn-form mb-5" onclick="addTable(); return false">+ Table</button>
+                <button type="button" class="ww-button btn-form mb-5" onclick="addTable(); return false">+ Table</button>
                 
             </div>
             <hr>
             <div class="container">
-                <button class="ww-button mb-5" onclick="submitPDF(); return false">Create PDF</button>
-                <button class="ww-button mb-5" onclick="clearLocalStorage(); return false">Reset</button>
+                <button type="submit" class="ww-button mb-5" onclick="submitPDF(); return false">Create PDF</button>
+                <button type="button" class="ww-button mb-5" onclick="clearLocalStorage(); return false">Reset</button>
                 <!-- <button class="ww-button mb-5" type="submit" onClick="submitPDF()">Submit</button> -->
             </div>
         </form>
